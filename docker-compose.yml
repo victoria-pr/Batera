@@ -1,0 +1,51 @@
+version: "3"
+services:
+  mysql:
+    image: mysql:5.6
+    container_name: mysql-desafio
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: bBK879@@
+      MYSQL_DATABASE: desafio
+    ports:
+      - 3330:3306
+    volumes:
+      - "./docker/usersilveresquema.sql:/docker-entrypoint-initdb.d/usersilveresquema.sql"
+      - "./docker/insertUsers.sql:/docker-entrypoint-initdb.d/insertUsers.sql"
+      - "./docker/insertSilvers.sql:/docker-entrypoint-initdb.d/insertSilvers.sql"
+
+      #- "./docker/mysql/mysql.cnf:/etc/mysql/conf.d/mysql.cnf"
+      # - "./docker/mysql/1egames.sql:/docker-entrypoint-initdb.d/1egames.sql"
+      # - "./docker/mysql/2egamesInsertData.sql:/docker-entrypoint-initdb.d/2egamesInsertData.sql"
+      # - "./docker/mysql/3egamesStockData.sql:/docker-entrypoint-initdb.d/3egamesStockData.sql"
+    networks:
+      - desafio
+  node:
+    build: ./backend
+    container_name: node-desafio
+    restart: always
+    ports:
+      - 3100:3000
+    depends_on:
+      - mysql
+    networks:
+      - desafio
+    volumes:
+      - ./backend:/usr/src/app
+      - exclude:/usr/src/app/node_modules/
+  react:
+    build: ./frontend
+    container_name: react-desafio
+    restart: always
+    ports:
+      - 3000:3000
+    depends_on:
+      - node
+    networks:
+      - desafio
+    volumes:
+      - ./frontend:/usr/src/app
+volumes:
+  exclude:
+networks:
+  desafio:
