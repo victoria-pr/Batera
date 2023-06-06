@@ -31,6 +31,7 @@ authRouter.post("/login", async (req, res) => {
     );
     res.send({ email: user.email, token: token, id: user.iduser });
   } catch (error) {
+    console.log(error);
     res.status(500).send("Error al iniciar sesión");
   }
 });

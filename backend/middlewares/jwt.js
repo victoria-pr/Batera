@@ -1,4 +1,6 @@
 import jwt from "jsonwebtoken";
+import { config } from "dotenv";
+config();
 
 // middleware to validate token (rutas protegidas)
 const verified = (req, res, next) => {

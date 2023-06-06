@@ -7,6 +7,7 @@ import PerfilScreen from "./components/PerfilScreen";
 import RecursosScreen from "./components/RecursosScreen";
 import ValoracionesScreen from "./components/ValoracionesScreen";
 import BoletinScreen from "./components/BoletinScreen";
+import Login from "./components/Login";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/recursos" element={<RecursosScreen />} />
         <Route path="/valoraciones" element={<ValoracionesScreen />} />
         <Route path="/boletin" element={<BoletinScreen />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </BrowserRouter>
   );
