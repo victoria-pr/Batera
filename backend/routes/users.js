@@ -1,5 +1,6 @@
 import { Router } from "express";
 import userController from "../controllers/userController.js";
+import verified from "../middlewares/jwt.js";
 
 const router = Router();
 
@@ -14,7 +15,7 @@ router.get("/:id", (req, res) => {
 });
 
 // ruta para el registro
-router.post("/register", (req, res) => {
+router.post("/register", verified, (req, res) => {
   userController.create(req, res);
 });
 
