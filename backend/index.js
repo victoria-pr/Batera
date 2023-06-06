@@ -3,6 +3,7 @@ import router from "./routes/router.js";
 /*import passport from "passport";
 import cookieParser from "cookie-parser";*/
 import cors from "cors";
+import verified from "./middlewares/jwt.js";
 
 const app = express(); //Creamos una pp de express
 app.use(cors());
@@ -16,7 +17,7 @@ app.get("/", (req, res) => {
   res.send("Hello grannys");
 });
 
-app.use("/api", router);
+app.use("/api", verified, router);
 
 app.listen(3000, () => {
   //INDICAMOS que el servidor escuche en el puerto 3000
