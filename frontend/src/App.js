@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Register from "./components/Register";
+import Login from "./components/Login";
 import Home from "./components/Home";
 import TareasScreen from "./components/TareasScreen";
 import CalendarioScreen from "./components/CalendarioScreen";
@@ -7,7 +8,6 @@ import PerfilScreen from "./components/PerfilScreen";
 import RecursosScreen from "./components/RecursosScreen";
 import ValoracionesScreen from "./components/ValoracionesScreen";
 import BoletinScreen from "./components/BoletinScreen";
-import Login from "./components/Login";
 
 function App() {
   return (
