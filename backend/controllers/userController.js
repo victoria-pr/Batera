@@ -1,4 +1,5 @@
 import User from "../models/users.js";
+import bcrypt from "bcrypt";
 
 const getAll = async (req, res) => {
   try {
@@ -52,9 +53,11 @@ const create = async (req, res) => {
       return;
     }
 
+    const password = await bcrypt.hash(req.body.password, 10);
+
     const user = await User.create({
       email: req.body.email,
-      password: req.body.password,
+      password: password,
     });
 
     res.send(user);
