@@ -15,7 +15,7 @@ router.get("/:id", (req, res) => {
 });
 
 // ruta para el registro
-router.post("/register", verified, (req, res) => {
+router.post("/register", (req, res) => {
   userController.create(req, res);
 });
 
