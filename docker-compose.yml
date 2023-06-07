@@ -15,10 +15,6 @@ services:
       - "./docker/insertUsers.sql:/docker-entrypoint-initdb.d/2insertUsers.sql"
       - "./docker/insertSilvers.sql:/docker-entrypoint-initdb.d/3insertSilvers.sql"
       - "./docker/insertLoneliness.sql:/docker-entrypoint-initdb.d/4insertLoneliness.sql"
-
-      # - "./docker/mysql/1egames.sql:/docker-entrypoint-initdb.d/1egames.sql"
-      # - "./docker/mysql/2egamesInsertData.sql:/docker-entrypoint-initdb.d/2egamesInsertData.sql"
-      # - "./docker/mysql/3egamesStockData.sql:/docker-entrypoint-initdb.d/3egamesStockData.sql"
     networks:
       - desafio
   node:

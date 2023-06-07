@@ -5,12 +5,12 @@ import verified from "../middlewares/jwt.js";
 const router = Router();
 
 // ruta para obtener todos los usuarios
-router.get("/", (req, res) => {
+/* router.get("/", verified, (req, res) => {
   agentController.getAll(req, res);
-});
+}); */
 
 // ruta para obtener un usuario por id
-router.get("/:id", (req, res) => {
+router.get("/", verified, (req, res) => {
   agentController.getById(req, res);
 });
 
