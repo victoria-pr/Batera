@@ -3,6 +3,7 @@ import router from "./routes/router.js";
 /*import passport from "passport";
 import cookieParser from "cookie-parser";*/
 import cors from "cors";
+import verified from "./middlewares/jwt.js";
 
 const app = express(); //Creamos una pp de express
 app.use(cors());
@@ -12,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 /* app.use(passport.initialize());
 app.use(cookieParser()); */
 
-app.get("/", (req, res) => {
+app.get("/", verified, (req, res) => {
   res.send("Hello grannys");
 });
 

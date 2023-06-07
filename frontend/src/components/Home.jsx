@@ -1,13 +1,51 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function Home() {
+  const [data, setData] = useState([]);
+  const [loged, setLoged] = useState(localStorage.getItem("infoUser"));
   const navigate = useNavigate();
+
+  const getData = async () => {
+    try {
+      const infoUser = localStorage.getItem("infoUser");
+      console.log("infoUser", infoUser);
+      if (!infoUser) {
+        navigate("/login");
+        return;
+      }
+      const token = JSON.parse(infoUser).token;
+      const response = await axios.get("http://localhost:3100/", {
+        headers: { "x-access-token": token },
+      });
+      console.log("LOS DATOS : ", response);
+      setData(response.data);
+    } catch (error) {
+      console.log("Da este error al entrar en home", error);
+      if (error.response.status === 401 || error.response.status === 400) {
+        navigate("/login");
+      }
+    }
+  };
+
+  const logout = () => {
+    localStorage.removeItem("infoUser");
+    setLoged(false);
+    navigate("/login");
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
 
   const handleButtonClick = (route) => {
     navigate(route);
   };
 
+  /* if (!loged) {
+    navigate("/login");
+  } */
   return (
     <section>
       <div>
@@ -22,6 +60,11 @@ function Home() {
         </button>
         <button onClick={() => handleButtonClick("/boletin")}>Boletín</button>
       </div>
+      {loged && (
+        <button className="logOut" onClick={logout}>
+          Salir
+        </button>
+      )}
     </section>
   );
 }
