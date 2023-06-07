@@ -2,10 +2,10 @@
 import connection from "../config/db.js";
 import Sequelize from "sequelize";
 
-const User = connection.define(
-  "users",
+const Agent = connection.define(
+  "agent",
   {
-    iduser: {
+    agent_id: {
       type: Sequelize.INTEGER,
       primaryKey: true,
       autoIncrement: true,
@@ -23,6 +23,10 @@ const User = connection.define(
       type: Sequelize.STRING(45),
       allowNull: true,
     },
+    surname: {
+      type: Sequelize.STRING(45),
+      allowNull: true,
+    },
     telephone: {
       type: Sequelize.INTEGER,
       unique: true,
@@ -35,7 +39,7 @@ const User = connection.define(
   }
 );
 
-export default User;
+export default Agent;
 //relaciones entre usuarios y user_info
 
 /* User.hasMany(Orders, {

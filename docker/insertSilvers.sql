@@ -1,9 +1,55 @@
-use desafio;
+USE desafio;
 
+INSERT INTO silver (name, surname, address, city, postal_code, dni_nie, birthday, gender, marital_status, telephone, email, social_security_number, agent_id, results)
+VALUES
+('John', 'Doe', '123 Main St', 'Cityville', 12345, 123456789, '1990-01-01', 'Male', 'Single', '555-1234', 'johndoe@example.com', '123-45-6789', 1, 'Some results'),
+('Jane', 'Smith', '456 Elm St', 'Townsville', 154321, 987654321, '1992-03-15', 'Female', 'Married', '555-5678', 'janesmith@example.com', '987-65-4321', 2, 'Other results'),
+('Michael', 'Johnson', '789 Oak St', 'Villageville', 67890, 456789012, '1985-07-20', 'Male', 'Single', '555-9012', 'michaeljohnson@example.com', '456-78-9012', 3, 'More results'),
+('Emily', 'Williams', '321 Pine St', 'Townsville', 13579, 246813579, '1995-05-10', 'Female', 'Single', '555-2468', 'emilywilliams@example.com', '246-81-3579', 4, 'Additional results'),
+('David', 'Brown', '987 Cedar St', 'Cityville', 97531, 135792468, '1988-12-25', 'Male', 'Married', '555-9753', 'davidbrown@example.com', '975-31-2468', 5, 'Extra results'),
+('Sarah', 'Jones', '654 Maple St', 'Villageville', 75319, 802468135, '1993-09-08', 'Female', 'Single', '555-8024', 'sarahjones@example.com', '802-46-81235', 6, 'Some more results'),
+('Daniel', 'Taylor', '789 Oak St', 'Cityville', 12345, 468135792, '1987-04-12', 'Male', 'Married', '555-4681', 'danieltaylor@example.com', '4628-13-5792', 7, 'Additional results'),
+('Jessica', 'Davis', '456 Elm St', 'Townsville', 14321, 179246813, '1991-06-30', 'Female', 'Single', '555-5792', 'jessicadavis@example.com', '579-24-6813', 8, 'Other results'),
+('Andrew', 'Miller', '123 Main St', 'Villageville', 67890, 135792478, '1986-11-05', 'Male', 'Single', '555-1357', 'andrewmiller@example.com', '135-79-2468', 9, 'More results'),
+('Olivia', 'Anderson', '654 Maple St', 'Cityville', 97531, 112468135, '1994-02-18', 'Female', 'Married', '555-8024', 'oliviaanderson@example.com', '802-246-8135', 10, 'Extra results'),
+('William', 'Wilson', '789 Oak St', 'Townsville', 12345, 138135792, '1989-08-15', 'Male', 'Single', '555-4681', 'williamwilson@example.com', '4683-13-5792', 1, 'Some more results'),
+('Sophia', 'Taylor', '456 Elm St', 'Villageville', 14321, 1792468113, '1993-01-22', 'Female', 'Single', '555-5792', 'sophiataylor@example.com', '579-24-6813', 2, 'Other results'),
+('Ethan', 'Clark', '123 Main St', 'Cityville', 67890, 135793468, '1988-06-10', 'Male', 'Married', '555-1357', 'ethanclark@example.com', '135-79-2468', 3, 'More results'),
+('Isabella', 'Harris', '654 Maple St', 'Townsville', 97531, 103468135, '1994-11-27', 'Female', 'Single', '555-8024', 'isabellaharris@example.com', '802-426-8135', 4, 'Extra results'),
+('Mia', 'Lee', '456 Elm St', 'Cityville', 54321, 5279246813, '1992-07-14', 'Female', 'Married', '555-5792', 'miale@example.com', '579-24-6813', 6, 'Other results'),
+('Benjamin', 'Thompson', '123 Main St', 'Townsville', 67890, 133792468, '1986-12-30', 'Male', 'Single', '555-1357', 'benjaminthompson@example.com', '135-79-2468', 7, 'More results'),
+('Ava', 'White', '654 Maple St', 'Villageville', 97531, 802268135, '1995-02-03', 'Female', 'Single', '555-8024', 'avawhite@example.com', '802-46-81325', 8, 'Extra results'),
+('Daniel', 'Hernandez', '789 Oak St', 'Cityville', 12345, 4681335792, '1990-10-20', 'Male', 'Married', '555-4681', 'danielhernandez@example.com', '468-143-5792', 9, 'Some more results'),
+('Sofia', 'Garcia', '456 Elm St', 'Townsville', 54321, 5792346813, '1992-04-17', 'Female', 'Single', '555-5792', 'sofiagarcia@example.com', '579-24-6813', 2, 'Other results'),
+('Joseph', 'Martinez', '123 Main St', 'Villageville', 67890, 135392468, '1991-03-05', 'Male', 'Single', '555-1357', 'josephmartinez@example.com', '135-79-2468', 2, 'More results'),
+('Charlotte', 'Lopez', '654 Maple St', 'Cityville', 97531, 802448135, '1993-12-12', 'Female', 'Married', '555-8024', 'charlottelopez@example.com', '8202-46-8135', 2, 'Extra results'),
+('Henry', 'Gonzalez', '789 Oak St', 'Townsville', 12345, 4681354792, '1994-09-08', 'Male', 'Single', '555-4681', 'henrygonzalez@example.com', '468-13-55792', 3, 'Some more results'),
+('Amelia', 'Rodriguez', '456 Elm St', 'Villageville', 54321, 5792446813, '1989-07-25', 'Female', 'Single', '555-5792', 'ameliarodriguez@example.com', '579-24-6813', 4, 'Other results'),
+('Samuel', 'Hill', '123 Main St', 'Cityville', 67890, 135792268, '1987-02-14', 'Male', 'Married', '555-1357', 'samuelhill@example.com', '135-79-2468', 5, 'More results'),
+('Victoria', 'Moore', '654 Maple St', 'Townsville', 97531, 802465135, '1992-05-30', 'Female', 'Single', '555-8024', 'victoriamoore@example.com', '802-462-8135', 6, 'Extra results'),
+('Christopher', 'Walker', '789 Oak St', 'Villageville', 12345, 4568135792, '1991-11-18', 'Male', 'Single', '555-4681', 'christopherwalker@example.com', '468-13-57692', 7, 'Some more results'),
+('Abigail', 'Young', '456 Elm St', 'Cityville', 54321, 5792465813, '1995-10-03', 'Female', 'Married', '555-5792', 'abigailyoung@example.com', '579-24-6813', 8, 'Other results'),
+('Matthew', 'King', '123 Main St', 'Townsville', 67890, 135192468, '1988-09-10', 'Male', 'Single', '555-1357', 'matthewking@example.com', '135-79-2468', 9, 'More results'),
+('Elizabeth', 'Scott', '654 Maple St', 'Villageville', 97531, 802468165, '1993-06-27', 'Female', 'Single', '555-8024', 'elizabethscott@example.com', '8023-46-8135', 3, 'Extra results'),
+('Joshua', 'Green', '789 Oak St', 'Cityville', 12345, 4681357692, '1986-12-14', 'Male', 'Married', '555-4681', 'joshuagreen@example.com', '7468-13-5792', 1, 'Some more results'),
+('Addison', 'Adams', '456 Elm St', 'Townsville', 54321, 5792466813, '1994-01-02', 'Female', 'Single', '555-5792', 'addisonadams@example.com', '579-24-6813', 2, 'Other results'),
+('Andrew', 'Campbell', '123 Main St', 'Villageville', 67890, 435792468, '1990-04-20', 'Male', 'Single', '555-1357', 'andrewcampbell@example.com', '135-79-2468', 3, 'More results'),
+('Scarlett', 'Torres', '654 Maple St', 'Cityville', 97531, 702468135, '1992-08-18', 'Female', 'Married', '555-8024', 'scarletttorres@example.com', '802-446-8135', 3, 'Extra results'),
+('David', 'Parker', '789 Oak St', 'Townsville', 12345, 4681375792, '1989-11-06', 'Male', 'Single', '555-4681', 'davidparker@example.com', '468-13-57892', 5, 'Some more results'),
+('Madison', 'Evans', '456 Elm St', 'Villageville', 54321, 5792468713, '1993-07-12', 'Female', 'Single', '555-5792', 'madisonevans@example.com', '579-24-6813', 6, 'Other results'),
+('Elijah', 'Hall', '123 Main St', 'Cityville', 67890, 135792498, '1987-05-25', 'Male', 'Married', '555-1357', 'elijahhall@example.com', '135-79-2468', 7, 'More results'),
+('Grace', 'Gomez', '654 Maple St', 'Townsville', 97531, 882468135, '1995-03-28', 'Female', 'Single', '555-8024', 'gracegomez@example.com', '802-46-81355', 8, 'Extra results'),
+('Daniel', 'Sanchez', '789 Oak St', 'Villageville', 12345, 4268135792, '1988-02-10', 'Male', 'Single', '555-4681', 'danielsanchez@example.com', '4698-13-5792', 9, 'Some more results'),
+('Avery', 'Price', '456 Elm St', 'Cityville', 54321, 5792468813, '1992-09-15', 'Female', 'Married', '555-5792', 'averyprice@example.com', '579-24-6813', 4, 'Other results'),
+('Jackson', 'Bennett', '123 Main St', 'Townsville', 67890, 185792468, '1991-06-28', 'Male', 'Single', '555-1357', 'jacksonbennett@example.com', '135-79-2468', 1, 'More results'),
+('Chloe', 'Rivera', '654 Maple St', 'Villageville', 97531, 892468135, '1994-12-01', 'Female', 'Single', '555-8024', 'chloerivera@example.com', '802-46-86135', 2, 'Extra results'),
+('Joseph', 'Flores', '789 Oak St', 'Cityville', 12345, 4681357952, '1990-03-05', 'Male', 'Married', '555-4681', 'josephflores@example.com', '468-13-51792', 3, 'Some moreresults'),
+('Harper', 'Collins', '456 Elm St', 'Townsville', 54321, 5792468193, '1993-04-20', 'Female', 'Single', '555-5792', 'harpercollins@example.com', '579-24-6813', 4, 'Other results'),
+('Samuel', 'Rossi', '123 Main St', 'Villageville', 67890, 935792468, '1988-09-15', 'Male', 'Single', '555-1357', 'samuelrossi@example.com', '135-79-2468', 5, 'More results'),
+('Lily', 'Carter', '654 Maple St', 'Cityville', 97531, 809468135, '1994-07-12', 'Female', 'Married', '555-8024', 'lilycarter@example.com', '802-46-81357', 4, 'Extra results'),
+('Gabriel', 'Torres', '789 Oak St', 'Townsville', 12345, 4668135792, '1989-06-25', 'Male', 'Single', '555-4681', 'gabrieltorres@example.com', '468-153-5792', 7, 'Some more results'),
+('Nora', 'Morales', '456 Elm St', 'Villageville', 54321, 5791246813, '1991-03-30', 'Female', 'Single', '555-5792', 'noramorales@example.com', '579-24-6813', 8, 'Other results'),
+('Caleb', 'Stewart', '123 Main St', 'Cityville', 67890, 135792478, '1990-02-14', 'Male', 'Married', '555-1357', 'calebstewart@example.com', '135-79-2468', 9, 'More results'),
+('Evelyn', 'Perez', '654 Maple St', 'Townsville', 97531, 802461135, '1995-01-07', 'Female', 'Single', '555-8024', 'evelynperez@example.com', '802-46-81135', 5, 'Extra results');
 
-
-INSERT INTO silvers (name, last_name, age, address, telephone, iduser) VALUES
-("Marisa", "Plata", "25", "Calle Otaola, 35", "943891111", "1");
-
-
-SELECT * FROM silvers;
+SELECT * FROM silver;

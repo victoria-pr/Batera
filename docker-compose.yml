@@ -11,9 +11,10 @@ services:
       - 3330:3306
     volumes:
       - "./docker/mysql.cnf:/etc/mysql/conf.d/mysql.cnf"
-      - "./docker/usersilveresquema.sql:/docker-entrypoint-initdb.d/1usersilveresquema.sql"
+      - "./docker/dbDesafio.sql:/docker-entrypoint-initdb.d/1dbDesafio.sql"
       - "./docker/insertUsers.sql:/docker-entrypoint-initdb.d/2insertUsers.sql"
       - "./docker/insertSilvers.sql:/docker-entrypoint-initdb.d/3insertSilvers.sql"
+      - "./docker/insertLoneliness.sql:/docker-entrypoint-initdb.d/4insertLoneliness.sql"
 
       # - "./docker/mysql/1egames.sql:/docker-entrypoint-initdb.d/1egames.sql"
       # - "./docker/mysql/2egamesInsertData.sql:/docker-entrypoint-initdb.d/2egamesInsertData.sql"
