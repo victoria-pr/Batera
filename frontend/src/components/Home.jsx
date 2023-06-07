@@ -16,13 +16,13 @@ function Home() {
         return;
       }
       const token = JSON.parse(infoUser).token;
-      const response = await axios.get("http://localhost:3100/api/", {
+      const response = await axios.get("http://localhost:3100/", {
         headers: { "x-access-token": token },
       });
       console.log("LOS DATOS : ", response);
       setData(response.data);
     } catch (error) {
-      console.log(error);
+      console.log("Da este error al entrar en home", error);
       if (error.response.status === 401 || error.response.status === 400) {
         navigate("/login");
       }
@@ -32,7 +32,7 @@ function Home() {
   const logout = () => {
     localStorage.removeItem("infoUser");
     setLoged(false);
-    navigate("/");
+    navigate("/login");
   };
 
   useEffect(() => {
@@ -43,6 +43,9 @@ function Home() {
     navigate(route);
   };
 
+  /* if (!loged) {
+    navigate("/login");
+  } */
   return (
     <section>
       <div>

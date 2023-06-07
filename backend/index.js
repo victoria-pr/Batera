@@ -13,11 +13,11 @@ app.use(express.urlencoded({ extended: true }));
 /* app.use(passport.initialize());
 app.use(cookieParser()); */
 
-app.get("/", (req, res) => {
+app.get("/", verified, (req, res) => {
   res.send("Hello grannys");
 });
 
-app.use("/api", verified, router);
+app.use("/api", router);
 
 app.listen(3000, () => {
   //INDICAMOS que el servidor escuche en el puerto 3000
