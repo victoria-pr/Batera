@@ -1,15 +1,22 @@
-import User from "../models/users.js";
+import Agent from "../models/agents.js";
 import bcrypt from "bcrypt";
 
 const getAll = async (req, res) => {
   try {
-    let users = await User.findAll({
-      attributes: ["iduser", "email", "password", "name", "telephone"],
+    let agents = await Agent.findAll({
+      attributes: [
+        "agent_id",
+        "email",
+        "password",
+        "name",
+        "surname",
+        "telephone",
+      ],
     });
-    res.send(users);
+    res.send(agents);
   } catch (error) {
     res.status(500).send({
-      message: error.message || "Some error ocurred while retrieving users.",
+      message: error.message || "Some error ocurred while retrieving agents.",
     });
   }
 };
@@ -17,22 +24,29 @@ const getAll = async (req, res) => {
 const getById = async (req, res) => {
   try {
     /* const iduser = req.user.id; */
-    const iduser = req.params.id;
-    let user = await User.findByPk(iduser, {
-      attributes: ["iduser", "email", "password", "name", "telephone"],
+    const agent_id = req.params.id;
+    let agent = await Agent.findByPk(agent_id, {
+      attributes: [
+        "agent_id",
+        "email",
+        "password",
+        "name",
+        "surname",
+        "telephone",
+      ],
     });
-    res.send(user);
+    res.send(agent);
   } catch (error) {
     res.status(500).send({
-      message: error.message || "Some error ocurred while retrieving users.",
+      message: error.message || "Some error ocurred while retrieving agents.",
     });
   }
 };
 
 const create = async (req, res) => {
   try {
-    const oldUser = await User.findOne({ where: { email: req.body.email } });
-    if (oldUser) {
+    const oldAgent = await Agent.findOne({ where: { email: req.body.email } });
+    if (oldAgent) {
       res.status(400).send("El usuario ya existe");
       return;
     }
@@ -55,12 +69,12 @@ const create = async (req, res) => {
 
     const password = await bcrypt.hash(req.body.password, 10);
 
-    const user = await User.create({
+    const agent = await Agent.create({
       email: req.body.email,
       password: password,
     });
 
-    res.send(user);
+    res.send(agent);
   } catch (error) {
     res.status(500).send({
       message: error.message || "Ocurrió un error al obtener los usuarios.",
@@ -70,14 +84,14 @@ const create = async (req, res) => {
 
 const login = async (req, res) => {
   const email = req.body.email;
-  let user = await User.findOne({ where: { email: email } });
-  if (!user) {
+  let agent = await Agent.findOne({ where: { email: email } });
+  if (!agent) {
     res.status(404).send("El usuario no existe");
     return;
   }
   let password = req.body.password;
-  /*  if (await bcrypt.compare(password,user.password)) { */ // esta linea es para cuando encriptemos las contraseñas
-  if (password == user.password) {
+  /*  if (await bcrypt.compare(password,agent.password)) { */ // esta linea es para cuando encriptemos las contraseñas
+  if (password == agent.password) {
     res.send("Usuario y contraseña correctos");
   } else {
     res.status(401).send("Contraseña incorrecta");
