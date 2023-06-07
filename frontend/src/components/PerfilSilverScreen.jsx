@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 const PerfilSilverScreen = () => {
   const [data, setData] = useState([]);
@@ -49,6 +49,20 @@ const PerfilSilverScreen = () => {
           <h2>{data.surname}</h2>
           <p>{data.address}</p>
           <p>{data.silver_id}</p>
+        </div>
+        <div className="silvers-forms">
+          {data.loneliness_forms?.map((loneliness, index) => {
+            return (
+              <Link
+                key={index}
+                to={`/formularioSilver/${loneliness.lon_form_id}`}
+                className="form-card"
+              >
+                <h2>{loneliness.loneliness_id}</h2>
+                <h2>{loneliness.date}</h2>
+              </Link>
+            );
+          })}
         </div>
       </div>
     </section>
