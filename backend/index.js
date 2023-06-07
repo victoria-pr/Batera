@@ -4,7 +4,6 @@ import router from "./routes/router.js";
 import cookieParser from "cookie-parser";*/
 import cors from "cors";
 import verified from "./middlewares/jwt.js";
-import bcrypt from "bcrypt";
 
 const app = express(); //Creamos una pp de express
 app.use(cors());
