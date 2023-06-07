@@ -1,6 +1,7 @@
 import Agent from "../models/agents.js";
 import bcrypt from "bcrypt";
 import Silver from "../models/silvers.js";
+import LonelyForm from "../models/lonelyForm.js";
 
 const getAll = async (req, res) => {
   try {
@@ -31,6 +32,27 @@ const getAll = async (req, res) => {
             "marital_status",
             "social_security_number",
             "results",
+          ],
+          include: [
+            {
+              model: LonelyForm,
+              attributes: [
+                "lon_form_id",
+                "date",
+                "q1",
+                "q2",
+                "q3",
+                "q4",
+                "q5",
+                "q6",
+                "q7",
+                "q8",
+                "q9",
+                "q10",
+                "sum",
+                "observations",
+              ],
+            },
           ],
         },
       ],
