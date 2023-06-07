@@ -1,5 +1,6 @@
 import Agent from "../models/agents.js";
 import bcrypt from "bcrypt";
+import Silver from "../models/silvers.js";
 
 const getAll = async (req, res) => {
   try {
@@ -11,6 +12,27 @@ const getAll = async (req, res) => {
         "name",
         "surname",
         "telephone",
+      ],
+      include: [
+        {
+          model: Silver,
+          attributes: [
+            "silver_id",
+            "name",
+            "surname",
+            "telephone",
+            "address",
+            "email",
+            "city",
+            "postal_code",
+            "dni_nie",
+            "birthday",
+            "gender",
+            "marital_status",
+            "social_security_number",
+            "results",
+          ],
+        },
       ],
     });
     res.send(agents);
