@@ -67,8 +67,7 @@ const getAll = async (req, res) => {
 
 const getById = async (req, res) => {
   try {
-    /* const iduser = req.user.id; */
-    const agent_id = req.params.id;
+    const agent_id = req.user.id;
     let agent = await Agent.findByPk(agent_id, {
       attributes: [
         "agent_id",
@@ -77,6 +76,48 @@ const getById = async (req, res) => {
         "name",
         "surname",
         "telephone",
+      ],
+      include: [
+        {
+          model: Silver,
+          attributes: [
+            "silver_id",
+            "name",
+            "surname",
+            "telephone",
+            "address",
+            "email",
+            "city",
+            "postal_code",
+            "dni_nie",
+            "birthday",
+            "gender",
+            "marital_status",
+            "social_security_number",
+            "results",
+          ],
+          include: [
+            {
+              model: LonelyForm,
+              attributes: [
+                "lon_form_id",
+                "date",
+                "q1",
+                "q2",
+                "q3",
+                "q4",
+                "q5",
+                "q6",
+                "q7",
+                "q8",
+                "q9",
+                "q10",
+                "sum",
+                "observations",
+              ],
+            },
+          ],
+        },
       ],
     });
     res.send(agent);
@@ -134,11 +175,12 @@ const login = async (req, res) => {
     return;
   }
   let password = req.body.password;
-  /*  if (await bcrypt.compare(password,agent.password)) { */ // esta linea es para cuando encriptemos las contraseñas
+  /* if (await bcrypt.compare(password, agent.password)) */
   if (password == agent.password) {
+    // esta linea es para cuando encriptemos las contraseñas
     res.send("Usuario y contraseña correctos");
   } else {
-    res.status(401).send("Contraseña incorrecta");
+    res.status(401).send("Contraseña iasdfasdfsdfsdfncorrecta");
   }
 };
 

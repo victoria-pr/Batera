@@ -8,6 +8,7 @@ import PerfilScreen from "./components/PerfilScreen";
 import RecursosScreen from "./components/RecursosScreen";
 import ValoracionesScreen from "./components/ValoracionesScreen";
 import BoletinScreen from "./components/BoletinScreen";
+import PerfilSilverScreen from "./components/PerfilSilverScreen";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/valoraciones" element={<ValoracionesScreen />} />
         <Route path="/boletin" element={<BoletinScreen />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/perfilSilver/:id" element={<PerfilSilverScreen />} />
       </Routes>
     </BrowserRouter>
   );
