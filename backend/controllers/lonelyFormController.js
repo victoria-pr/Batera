@@ -4,7 +4,7 @@ import LonelyForm from "../models/lonelyForm.js";
 const getById = async (req, res) => {
   try {
     const lon_form_id = req.params.id;
-    let lonelyForms = await LonelyForm.findByPk(lon_form_id, {
+    let lonelyForm = await LonelyForm.findByPk(lon_form_id, {
       attributes: [
         "lon_form_id",
         "date",
@@ -57,7 +57,7 @@ const getById = async (req, res) => {
         },
       ],
     });
-    res.send(lonelyForms);
+    res.send(lonelyForm);
   } catch (error) {
     res.status(500).send({
       message: error.message || "Some error ocurred while retrieving forms.",

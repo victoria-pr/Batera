@@ -15,6 +15,7 @@ services:
       - "./docker/insertUsers.sql:/docker-entrypoint-initdb.d/2insertUsers.sql"
       - "./docker/insertSilvers.sql:/docker-entrypoint-initdb.d/3insertSilvers.sql"
       - "./docker/insertLoneliness.sql:/docker-entrypoint-initdb.d/4insertLoneliness.sql"
+      - "./docker/insertResources.sql:/docker-entrypoint-initdb.d/5insertResources.sql"
     networks:
       - desafio
   node:

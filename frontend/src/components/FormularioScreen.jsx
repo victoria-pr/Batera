@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-const PerfilSilverScreen = () => {
+const FormularioScreen = () => {
   const [data, setData] = useState([]);
   const navigate = useNavigate();
   const { id } = useParams();
@@ -62,4 +62,4 @@ const PerfilSilverScreen = () => {
   );
 };
 
-export default PerfilSilverScreen;
+export default FormularioScreen;
