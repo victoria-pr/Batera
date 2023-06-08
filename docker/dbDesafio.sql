@@ -25,8 +25,8 @@ CREATE TABLE IF NOT EXISTS `desafio`.`agent` (
   `password` VARCHAR(100) NOT NULL,
   `telephone` VARCHAR(25) NULL,
   PRIMARY KEY (`agent_id`),
-  UNIQUE INDEX `email_UNIQUE` (`email` ASC) ,
-  UNIQUE INDEX `telephone_UNIQUE` (`telephone` ASC) )
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC),
+  UNIQUE INDEX `telephone_UNIQUE` (`telephone` ASC))
 ENGINE = InnoDB;
 
 
@@ -49,8 +49,12 @@ CREATE TABLE IF NOT EXISTS `desafio`.`silver` (
   `social_security_number` VARCHAR(45) NULL,
   `agent_id` INT NOT NULL,
   `results` VARCHAR(200) NULL,
+  `new_valuation_date` DATE NULL,
+  `contact_person` VARCHAR(45) NULL,
+  `contact_p_relation` VARCHAR(45) NULL,
+  `contact_p_telephone` VARCHAR(45) NULL,
   PRIMARY KEY (`silver_id`),
-  INDEX `fk_silver_agent_idx` (`agent_id` ASC) ,
+  INDEX `fk_silver_agent_idx` (`agent_id` ASC),
   CONSTRAINT `fk_silver_agent`
     FOREIGN KEY (`agent_id`)
     REFERENCES `desafio`.`agent` (`agent_id`)
@@ -78,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `desafio`.`dependency_form` (
   `enviar` BINARY(2) NOT NULL,
   `dep_form_id` INT NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`dep_form_id`),
-  UNIQUE INDEX `dep_form_id_UNIQUE` (`dep_form_id` ASC) )
+  UNIQUE INDEX `dep_form_id_UNIQUE` (`dep_form_id` ASC))
 ENGINE = InnoDB;
 
 
@@ -99,12 +103,12 @@ CREATE TABLE IF NOT EXISTS `desafio`.`loneliness_form` (
   `q9` INT NOT NULL,
   `q10` INT NOT NULL,
   `sum` INT NOT NULL,
-  `enviar` BINARY(2) NULL,
+  `enviar` TINYINT(1) NULL,
   `silver_id` INT NOT NULL,
   `observations` VARCHAR(1000) NULL,
-  INDEX `fk_loneliness_form_silver1_idx` (`silver_id` ASC) ,
+  INDEX `fk_loneliness_form_silver1_idx` (`silver_id` ASC),
   PRIMARY KEY (`lon_form_id`),
-  UNIQUE INDEX `form_id_UNIQUE` (`lon_form_id` ASC) ,
+  UNIQUE INDEX `form_id_UNIQUE` (`lon_form_id` ASC),
   CONSTRAINT `fk_loneliness_form_silver1`
     FOREIGN KEY (`silver_id`)
     REFERENCES `desafio`.`silver` (`silver_id`)
@@ -117,14 +121,19 @@ ENGINE = InnoDB;
 -- Table `desafio`.`resources`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `desafio`.`resources` (
-  `day_care_center` BINARY(2) NULL,
-  `cofee_n_chat` BINARY(2) NULL,
-  `walking_club` BINARY(2) NULL,
-  `reading_club` BINARY(2) NULL,
-  `home_assistance` BINARY(2) NULL,
-  `phone_assistance` BINARY(2) NULL,
   `silver_id` INT NOT NULL,
-  INDEX `fk_resources_silver1_idx` (`silver_id` ASC) ,
+  `day_care_center` TINYINT(1) NULL,
+  `cofee_n_chat` TINYINT(1) NULL,
+  `walking_club` TINYINT(1) NULL,
+  `reading_club` TINYINT(1) NULL,
+  `home_assistance` TINYINT(1) NULL,
+  `phone_assistance` TINYINT(1) NULL,
+  `garden_group` TINYINT(1) NULL,
+  `cooking_group` TINYINT(1) NULL,
+  `cycling_group` TINYINT(1) NULL,
+  `board_games` TINYINT(1) NULL,
+  `movie_club` TINYINT(1) NULL,
+  INDEX `fk_resources_silver1_idx` (`silver_id` ASC),
   CONSTRAINT `fk_resources_silver1`
     FOREIGN KEY (`silver_id`)
     REFERENCES `desafio`.`silver` (`silver_id`)

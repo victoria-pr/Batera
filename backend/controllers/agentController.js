@@ -32,6 +32,10 @@ const getAll = async (req, res) => {
             "marital_status",
             "social_security_number",
             "results",
+            "new_valitacion_date",
+            "contact_person",
+            "contact_p_relation",
+            "contact_p_telephone",
           ],
           include: [
             {

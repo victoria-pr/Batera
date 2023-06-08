@@ -18,17 +18,9 @@ const Silver = connection.define(
       type: Sequelize.STRING(45),
       allowNull: false,
     },
-    telephone: {
-      type: Sequelize.STRING(45),
-      allowNull: true,
-    },
     address: {
       type: Sequelize.STRING(45),
       allowNull: false,
-    },
-    email: {
-      type: Sequelize.STRING(45),
-      allowNull: true,
     },
     city: {
       type: Sequelize.STRING(45),
@@ -53,12 +45,36 @@ const Silver = connection.define(
       type: Sequelize.STRING(45),
       allowNull: true,
     },
+    telephone: {
+      type: Sequelize.STRING(45),
+      allowNull: true,
+    },
+    email: {
+      type: Sequelize.STRING(45),
+      allowNull: true,
+    },
     social_security_number: {
       type: Sequelize.STRING(45),
       allowNull: true,
     },
     results: {
       type: Sequelize.STRING(200),
+      allowNull: true,
+    },
+    new_valuation_date: {
+      type: Sequelize.DATE,
+      allowNull: true,
+    },
+    contact_person: {
+      type: Sequelize.STRING(45),
+      allowNull: true,
+    },
+    contact_p_relation: {
+      type: Sequelize.STRING(45),
+      allowNull: true,
+    },
+    contact_p_telephone: {
+      type: Sequelize.STRING(45),
       allowNull: true,
     },
   },
