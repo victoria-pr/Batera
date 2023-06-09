@@ -167,6 +167,7 @@ const deleteForm = async (req, res) => {
 };
 
 export default {
+  getAll,
   getById,
   create,
   deleteForm,

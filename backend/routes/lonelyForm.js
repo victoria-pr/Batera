@@ -4,6 +4,7 @@ import verified from "../middlewares/jwt.js";
 
 const router = Router();
 
+
 router.get("/", (req, res) => {
   lonelyFormController.getAll(req, res);
 });

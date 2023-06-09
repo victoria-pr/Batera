@@ -11,6 +11,8 @@ import BoletinScreen from "./components/BoletinScreen";
 import PerfilSilverScreen from "./components/PerfilSilverScreen";
 import FormularioScreen from "./components/FormularioScreen";
 import NewFormScreen from "./components/NewFormScreen";
+import "./reset.scss";
+import "./style.scss";
 
 function App() {
   return (
