@@ -10,6 +10,7 @@ import ValoracionesScreen from "./components/ValoracionesScreen";
 import BoletinScreen from "./components/BoletinScreen";
 import PerfilSilverScreen from "./components/PerfilSilverScreen";
 import FormularioScreen from "./components/FormularioScreen";
+import NewFormScreen from "./components/NewFormScreen";
 
 function App() {
   return (
@@ -26,6 +27,10 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/perfilSilver/:id" element={<PerfilSilverScreen />} />
         <Route path="/formularioSilver/:id" element={<FormularioScreen />} />
+        <Route
+          path="/formularioSilver/:id/create"
+          element={<NewFormScreen />}
+        />
       </Routes>
     </BrowserRouter>
   );

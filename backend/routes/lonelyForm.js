@@ -4,9 +4,9 @@ import verified from "../middlewares/jwt.js";
 
 const router = Router();
 
-/* router.get("/", verified, (req, res) => {
-  silverController.getAll(req, res);
-}); */
+router.get("/", (req, res) => {
+  lonelyFormController.getAll(req, res);
+});
 
 // ruta para obtener un formulario por id
 router.get("/:id", verified, (req, res) => {
@@ -14,7 +14,7 @@ router.get("/:id", verified, (req, res) => {
 });
 
 // ruta para crear un formulario
-router.post("/create", (req, res) => {
+router.post("/:id/create", verified, (req, res) => {
   lonelyFormController.create(req, res);
 });
 
@@ -24,8 +24,8 @@ router.post("/create", (req, res) => {
 }); */
 
 // ruta para eliminar un formulario
-router.delete("/delete", (req, res) => {
-  lonelyFormController.delete(req, res);
+router.delete("/:id/delete", verified, (req, res) => {
+  lonelyFormController.deleteForm(req, res);
 });
 
 export default router;

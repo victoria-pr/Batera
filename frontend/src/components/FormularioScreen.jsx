@@ -36,6 +36,35 @@ const FormularioScreen = () => {
     getDataById(id);
   }, [id]);
 
+  const handleDelete = async (formId) => {
+    try {
+      const infoUser = localStorage.getItem("infoUser");
+      console.log("infoUser", infoUser);
+      if (!infoUser) {
+        navigate("/login");
+        return;
+      }
+      const token = JSON.parse(infoUser).token;
+      const response = await axios.delete(
+        `http://localhost:3100/api/lonelyForms/${formId}/delete`,
+        {
+          headers: { "x-access-token": token },
+        }
+      );
+      console.log("DATOS DE LOS formularios al borrar form: ", response);
+      navigate("/");
+    } catch (error) {
+      console.log("Da este error al coger la info de FORMS", error);
+      if (error.response.status === 401 || error.response.status === 400) {
+        navigate("/login");
+      }
+    }
+  };
+
+  const deleteForm = (formId) => {
+    handleDelete(formId);
+  };
+
   if (!data) return <div>Loading...</div>;
   return (
     <section>
@@ -57,6 +86,12 @@ const FormularioScreen = () => {
           <p>{data.sum}</p>
           <p>{data.observations}</p>
         </div>
+        <button
+          className="btn btn-danger"
+          onClick={() => deleteForm(data.lon_form_id)}
+        >
+          borrar
+        </button>
       </div>
     </section>
   );
