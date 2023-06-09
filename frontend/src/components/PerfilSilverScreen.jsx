@@ -65,6 +65,9 @@ const PerfilSilverScreen = () => {
           })}
         </div>
       </div>
+      <Link to={`/formularioSilver/${data.silver_id}/create`}>
+        <button>Crear formulario</button>
+      </Link>
     </section>
   );
 };
