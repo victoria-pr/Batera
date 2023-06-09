@@ -10,7 +10,7 @@ const router = Router();
 }); */
 
 // ruta para obtener un usuario por id
-router.get("/:id", (req, res) => {
+router.get("/", verified, (req, res) => {
   agentController.getById(req, res);
 });
 
