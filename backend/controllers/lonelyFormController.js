@@ -1,5 +1,17 @@
 import Silver from "../models/silvers.js";
 import LonelyForm from "../models/lonelyForm.js";
+import Agent from "../models/agents.js";
+
+const getAll = async (req, res) => {
+  try {
+    let lonelyForms = await LonelyForm.findAll();
+    res.send(lonelyForms);
+  } catch (error) {
+    res.status(500).send({
+      message: error.message || "Some error ocurred while retrieving forms.",
+    });
+  }
+};
 
 const getById = async (req, res) => {
   try {
@@ -141,6 +153,7 @@ const create = async (req, res) => {
 };
 
 export default {
+  getAll,
   getById,
   create,
 };

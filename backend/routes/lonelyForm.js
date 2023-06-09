@@ -4,9 +4,9 @@ import verified from "../middlewares/jwt.js";
 
 const router = Router();
 
-/* router.get("/", verified, (req, res) => {
+router.get("/", verified, (req, res) => {
   silverController.getAll(req, res);
-}); */
+});
 
 // ruta para obtener un formulario por id
 router.get("/:id", verified, (req, res) => {

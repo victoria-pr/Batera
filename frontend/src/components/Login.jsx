@@ -48,24 +48,42 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <section className="loginsection">
       <p>{errorMessage}</p>
-      <div className="login-container">
-        <h1 className="login-tittle">Login</h1>
-        <form action="" onSubmit={submit} className="form">
-          <label htmlFor="email">Email </label>
-          <input type="email" name="email" id="email" />
-          <br />
-          <br />
-          <label htmlFor="password">Password </label>
-          <input type="password" name="password" id="password" />
-          <br />
-          <button>Iniciar sesión</button>
+      <div className="form-container">
+        {/* <h1 className="login-tittle">Login</h1> */}
+        <form action="" onSubmit={submit}>
+          <div>
+            <label htmlFor="email">ID usuario </label>
+            <input
+              className="loginInput"
+              type="email"
+              name="email"
+              id="email"
+            />
+          </div>
+
+          <div>
+            <label htmlFor="password"> Contraseña </label>
+            <input
+              className="loginInput"
+              type="password"
+              name="password"
+              id="password"
+            />
+          </div>
+
+          <div className="btns">
+            <button className="btn-page">Entrar</button>
+          </div>
         </form>
 
-        <Link to="/register">¿No tienes cuenta? ¡Pues créate una!</Link>
+        <p className="text-sm">
+          ¿No tienes cuenta?
+          <Link to="/register"> Regístrate</Link>
+        </p>
       </div>
-    </div>
+    </section>
   );
 };
 
