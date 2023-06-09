@@ -454,9 +454,16 @@ const NewFormScreen = () => {
           />
           <label htmlFor="q40">Nunca me siento de ese modo.</label>
         </div>
-        <div className="suma">
-          <label htmlFor="suma">Suma:</label>
-          <input type="text" name="suma" id="suma" onChange={handleChange} />
+        <div className="sum">
+          <label htmlFor="sum">Suma:</label>
+          {/* Aquí va un input que su valor se calcule en base a la suma de los valores de las preguntas anteriores */}
+          <input
+            type="text"
+            name="sum"
+            id="sum"
+            value={form.sum}
+            onChange={handleChange}
+          />
         </div>
         .
         <div className="textarea">
