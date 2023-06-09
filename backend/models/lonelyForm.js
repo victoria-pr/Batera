@@ -61,7 +61,7 @@ const LonelyForm = connection.define(
       allowNull: false,
     },
     enviar: {
-      type: Sequelize.BOOLEAN,
+      type: Sequelize.TINYINT,
       allowNull: true,
     },
     observations: {
@@ -78,12 +78,12 @@ const LonelyForm = connection.define(
 export default LonelyForm;
 
 //relaciones entre silver y loneliness_form
-Silver.hasMany(LonelyForm, {
-  foreignKey: "silver_id",
-  sourceKey: "silver_id",
-});
-
 LonelyForm.belongsTo(Silver, {
   foreignKey: "silver_id",
   targetKey: "silver_id",
+});
+
+Silver.hasMany(LonelyForm, {
+  foreignKey: "silver_id",
+  sourceKey: "silver_id",
 });

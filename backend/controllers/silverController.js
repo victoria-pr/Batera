@@ -21,6 +21,10 @@ const getAll = async (req, res) => {
         "marital_status",
         "social_security_number",
         "results",
+        "new_valuation_date",
+        "contact_person",
+        "contact_p_relation",
+        "contact_p_telephone",
       ],
       include: [
         {
@@ -71,6 +75,10 @@ const getById = async (req, res) => {
         "marital_status",
         "social_security_number",
         "results",
+        "new_valuation_date",
+        "contact_person",
+        "contact_p_relation",
+        "contact_p_telephone",
       ],
       include: [
         {

@@ -6,8 +6,8 @@ const router = Router();
 
 /* router.get("/", verified, (req, res) => {
   silverController.getAll(req, res);
-});
- */
+}); */
+
 // ruta para obtener un formulario por id
 router.get("/:id", verified, (req, res) => {
   lonelyFormController.getById(req, res);
@@ -19,9 +19,9 @@ router.post("/create", (req, res) => {
 });
 
 // ruta para editar un formulario
-router.put("/edit", (req, res) => {
+/* router.put("/edit", (req, res) => {
   lonelyFormController.update(req, res);
-});
+}); */
 
 // ruta para eliminar un formulario
 router.delete("/delete", (req, res) => {

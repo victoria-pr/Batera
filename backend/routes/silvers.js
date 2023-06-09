@@ -5,7 +5,7 @@ import verified from "../middlewares/jwt.js";
 const router = Router();
 
 // ruta para obtener todos los usuarios
-router.get("/", (req, res) => {
+router.get("/", verified, (req, res) => {
   silverController.getAll(req, res);
 });
 
