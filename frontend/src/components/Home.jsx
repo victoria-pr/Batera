@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import NavBar from "./NavBar";
 
 function Home() {
   const [data, setData] = useState([]);
@@ -48,6 +49,7 @@ function Home() {
   } */
   return (
     <section className="homensection">
+      <NavBar />
       <div className="btn-page">
         <button className="btns" onClick={() => handleButtonClick("/tareas")}>
           <svg

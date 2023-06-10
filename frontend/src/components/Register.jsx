@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import Axios from "axios";
+import NavBar from "./NavBar";
 
 const Register = () => {
   const [errorEmail, setErrorEmail] = useState("");
@@ -67,6 +68,7 @@ const Register = () => {
 
   return (
     <section className="signupsection">
+      <NavBar />
       <div className="form-container">
         <h1 className="maintitulo">Regístrate</h1>
         <form action="" onSubmit={submit}>

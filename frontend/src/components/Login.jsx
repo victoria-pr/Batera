@@ -51,7 +51,7 @@ const Login = () => {
     <section className="loginsection">
       <p>{errorMessage}</p>
       <div className="form-container">
-        {/* <h1 className="login-tittle">Login</h1> */}
+        <h1 className="login-tittle">Inicia sesión</h1>
         <form action="" onSubmit={submit}>
           <div>
             <label htmlFor="email">ID usuario </label>
