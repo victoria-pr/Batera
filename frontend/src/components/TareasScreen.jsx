@@ -44,20 +44,22 @@ function Tareas() {
       <article className="mySilvers">
         <h1>Perfil Silver</h1>
         <div className="silvers-container">
-          {data.silvers?.map((silver, index) => {
-            return (
-              <Link
-                key={index}
-                to={`/perfilSilver/${silver.silver_id}`}
-                className="silver-card"
-              >
-                <h2>{silver.name}</h2>
-                <h2>{silver.surname}</h2>
-                <p>{silver.address}</p>
-                <p>{silver.silver_id}</p>
-              </Link>
-            );
-          })}
+          {data.silvers
+            ?.map((silver, index) => {
+              return (
+                <Link
+                  key={index}
+                  to={`/perfilSilver/${silver.silver_id}`}
+                  className="silver-card"
+                >
+                  <h2>{silver.name}</h2>
+                  <h2>{silver.surname}</h2>
+                  <p>{silver.address}</p>
+                  <p>{silver.silver_id}</p>
+                </Link>
+              );
+            })
+            .slice(-3)}
         </div>
       </article>
     </section>

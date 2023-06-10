@@ -50,6 +50,7 @@ const PerfilSilverScreen = () => {
           <p>{data.address}</p>
           <p>{data.silver_id}</p>
         </div>
+        <h1>Formularios</h1>
         <div className="silvers-forms">
           {data.loneliness_forms?.map((loneliness, index) => {
             return (
@@ -68,6 +69,76 @@ const PerfilSilverScreen = () => {
       <Link to={`/formularioSilver/${data.silver_id}/create`}>
         <button>Crear formulario</button>
       </Link>
+      <h1>Recursos</h1>
+      <div className="silvers-resources">
+        {data.resources?.map((resource, index) => {
+          return (
+            <div key={index} className="resources-card">
+              <div className="id-resources">
+                <h2>Nº de adjudicación</h2>
+                <h3>{resource.resources_id}</h3>
+              </div>
+              <div className="resources-particular">
+                {resource.board_games === 1 ? (
+                  <div className="resource-particular-card">
+                    <h2>Juegos de mesa</h2>
+                  </div>
+                ) : null}
+                {resource.cofee_n_chat === 1 ? (
+                  <div className="resource-particular-card">
+                    <h2>Café y charla</h2>
+                  </div>
+                ) : null}
+                {resource.cooking_group === 1 ? (
+                  <div className="resource-particular-card">
+                    <h2>Grupo de cocina</h2>
+                  </div>
+                ) : null}
+                {resource.cycling_group === 1 ? (
+                  <div className="resource-particular-card">
+                    <h2>Grupo de ciclistas</h2>
+                  </div>
+                ) : null}
+                {resource.day_care_center === 1 ? (
+                  <div className="resource-particular-card">
+                    <h2>Centro de día</h2>
+                  </div>
+                ) : null}
+                {resource.garden_group === 1 ? (
+                  <div className="resource-particular-card">
+                    <h2>Grupo de jardinería</h2>
+                  </div>
+                ) : null}
+                {resource.home_assistance === 1 ? (
+                  <div className="resource-particular-card">
+                    <h2>Asistencia domiciliaria</h2>
+                  </div>
+                ) : null}
+                {resource.phone_assistance === 1 ? (
+                  <div className="resource-particular-card">
+                    <h2>Asistencia telefónica</h2>
+                  </div>
+                ) : null}
+                {resource.movie_club === 1 ? (
+                  <div className="resource-particular-card">
+                    <h2>Club de cine</h2>
+                  </div>
+                ) : null}
+                {resource.reading_club === 1 ? (
+                  <div className="resource-particular-card">
+                    <h2>Club de lectura</h2>
+                  </div>
+                ) : null}
+                {resource.walking_club === 1 ? (
+                  <div className="resource-particular-card">
+                    <h2>Club de paseo</h2>
+                  </div>
+                ) : null}
+              </div>
+            </div>
+          );
+        })}
+      </div>
     </section>
   );
 };

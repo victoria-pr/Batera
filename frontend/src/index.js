@@ -8,7 +8,7 @@ import "./reset.scss";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <img src="./logoBatera.png" class="LogoBatera" />
+    <img src="../logoBatera.png" className="LogoBatera" alt="Logo Batera" />
     <App />
   </React.StrictMode>
 );
