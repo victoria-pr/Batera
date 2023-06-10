@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Axios from "axios";
 
 const Register = () => {
@@ -66,17 +66,41 @@ const Register = () => {
   };
 
   return (
-    <div className="login-container">
-      <h1>Registrate</h1>
-      <form action="" onSubmit={submit} className="form">
-        <label htmlFor="email">Email {errorEmail}</label>
-        <input type="email" name="email" id="email" />
-        <label htmlFor="password">Password {errorPassword}</label>
-        <input type="password" name="password" id="password" />
-        <button type="submit">Registrarse</button>
-      </form>
+    <section className="signupsection">
+      <div className="form-container">
+        <h1 className="maintitulo">Regístrate</h1>
+        <form action="" onSubmit={submit}>
+          <div>
+            <label htmlFor="email">Dirección de correo {errorEmail}</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              className="loginInput"
+            />
+          </div>
+          <div>
+            <label htmlFor="password">Contraseña {errorPassword}</label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              className="loginInput"
+            />
+          </div>
+          <div className="btns">
+            <button className="btn-page" type="submit">
+              Registrarse
+            </button>
+          </div>
+        </form>
+        <p className="text-sm">
+          ¿Ya tienes cuenta?
+          <Link to="/login"> Inicia sesión</Link>
+        </p>
+      </div>
       <p>{requestError}</p>
-    </div>
+    </section>
   );
 };
 
