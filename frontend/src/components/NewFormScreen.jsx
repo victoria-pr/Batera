@@ -44,8 +44,8 @@ const NewFormScreen = () => {
           headers: { "x-access-token": token },
         }
       );
-      console.log("DATOS DE LOS formularios: ", response);
-      navigate("/");
+      console.log("DATOS DEl form creado: ", response);
+      navigate(`/perfilSilver/${response.data.data.silver_id}`);
     } catch (error) {
       console.log("Da este error al coger la info de FORMS", error);
       if (error.response.status === 401 || error.response.status === 400) {

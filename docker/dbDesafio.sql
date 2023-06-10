@@ -133,12 +133,12 @@ CREATE TABLE IF NOT EXISTS `desafio`.`resources` (
   `cycling_group` TINYINT(1) NULL,
   `board_games` TINYINT(1) NULL,
   `movie_club` TINYINT(1) NULL,
-  `silver_id` INT NOT NULL,
+  `lon_form_id` INT NOT NULL,
   PRIMARY KEY (`resources_id`),
-  INDEX `fk_resources_silver1_idx` (`silver_id` ASC),
-  CONSTRAINT `fk_resources_silver1`
-    FOREIGN KEY (`silver_id`)
-    REFERENCES `desafio`.`silver` (`silver_id`)
+  INDEX `fk_resources_loneliness_form1_idx` (`lon_form_id` ASC),
+  CONSTRAINT `fk_resources_loneliness_form1`
+    FOREIGN KEY (`lon_form_id`)
+    REFERENCES `desafio`.`loneliness_form` (`lon_form_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

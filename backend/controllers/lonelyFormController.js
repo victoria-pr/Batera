@@ -1,6 +1,6 @@
 import Silver from "../models/silvers.js";
 import LonelyForm from "../models/lonelyForm.js";
-import Agent from "../models/agents.js";
+import Resources from "../models/resource.js";
 
 const getAll = async (req, res) => {
   try {
@@ -52,6 +52,8 @@ const getById = async (req, res) => {
         "enviar",
         "observations",
       ],
+      //aquí incluyo el modelo de Silver para que me devuelva los datos del silver que corresponda a ese formulario
+
       include: [
         {
           model: Silver,
@@ -75,18 +77,24 @@ const getById = async (req, res) => {
             "contact_p_relation",
             "contact_p_telephone",
           ],
-          include: [
-            {
-              model: Agent,
-              attributes: [
-                "agent_id",
-                "email",
-                "password",
-                "name",
-                "surname",
-                "telephone",
-              ],
-            },
+        },
+
+        {
+          model: Resources,
+          attributes: [
+            "resources_id",
+            "day_care_center",
+            "cofee_n_chat",
+            "walking_club",
+            "reading_club",
+            "movie_club",
+            "home_assistance",
+            "phone_assistance",
+            "garden_group",
+            "cooking_group",
+            "cycling_group",
+            "board_games",
+            "lon_form_id",
           ],
         },
       ],
@@ -142,6 +150,16 @@ const deleteForm = async (req, res) => {
 
     // Buscar el formulario por su ID
     const form = await LonelyForm.findByPk(formId);
+
+    //Borrar también el recurso asociado
+    const resource = await Resources.findOne({
+      where: {
+        lon_form_id: formId,
+      },
+    });
+    if (resource) {
+      await resource.destroy();
+    }
 
     if (!form) {
       return res.status(404).json({

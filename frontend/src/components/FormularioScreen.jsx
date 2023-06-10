@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import RecursosScreen from "./RecursosScreen";
 
 const FormularioScreen = () => {
   const [data, setData] = useState([]);
@@ -52,7 +53,8 @@ const FormularioScreen = () => {
         }
       );
       console.log("DATOS DE LOS formularios al borrar form: ", response);
-      navigate("/");
+      //ahora navegamos a la pantalla de perfil silver
+      navigate(`/perfilSilver/${data.silver.silver_id}`);
     } catch (error) {
       console.log("Da este error al coger la info de FORMS", error);
       if (error.response.status === 401 || error.response.status === 400) {
@@ -88,11 +90,14 @@ const FormularioScreen = () => {
         </div>
         <button
           className="btn btn-danger"
-          onClick={() => deleteForm(data.lon_form_id)}
+          onClick={() => {
+            deleteForm(data.lon_form_id);
+          }}
         >
           borrar
         </button>
       </div>
+      {data && <RecursosScreen data={data} setData={setData} />}
     </section>
   );
 };
