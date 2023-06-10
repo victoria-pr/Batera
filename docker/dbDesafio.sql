@@ -121,7 +121,7 @@ ENGINE = InnoDB;
 -- Table `desafio`.`resources`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `desafio`.`resources` (
-  `silver_id` INT NOT NULL,
+  `resources_id` INT NOT NULL AUTO_INCREMENT,
   `day_care_center` TINYINT(1) NULL,
   `cofee_n_chat` TINYINT(1) NULL,
   `walking_club` TINYINT(1) NULL,
@@ -133,6 +133,8 @@ CREATE TABLE IF NOT EXISTS `desafio`.`resources` (
   `cycling_group` TINYINT(1) NULL,
   `board_games` TINYINT(1) NULL,
   `movie_club` TINYINT(1) NULL,
+  `silver_id` INT NOT NULL,
+  PRIMARY KEY (`resources_id`),
   INDEX `fk_resources_silver1_idx` (`silver_id` ASC),
   CONSTRAINT `fk_resources_silver1`
     FOREIGN KEY (`silver_id`)
