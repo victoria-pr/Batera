@@ -91,8 +91,30 @@ const create = async (req, res) => {
   }
 };
 
+const deleteById = async (req, res) => {
+  try {
+    const resources_id = req.params.id;
+    let resources = await Resources.findByPk(resources_id);
+    if (resources) {
+      await resources.destroy();
+      res.status(200).send({
+        message: "Resource deleted.",
+      });
+    } else {
+      res.status(404).send({
+        message: "Resource not found.",
+      });
+    }
+  } catch (error) {
+    res.status(500).send({
+      message: error.message || "Some error ocurred while deleting resource.",
+    });
+  }
+};
+
 export default {
   getAll,
   getById,
   create,
+  deleteById,
 };
