@@ -11,7 +11,6 @@ root.render(
     <a href="/">
       <img src="./logoBatera.png" className="LogoBatera" alt="Logo Batera" />
     </a>
-    <img src="../logoBatera.png" className="LogoBatera" alt="Logo Batera" />
     <App />
   </React.StrictMode>
 );
