@@ -1,6 +1,6 @@
 import connection from "../config/db.js";
 import Sequelize from "sequelize";
-import Silver from "./silvers.js";
+import LonelyForm from "./lonelyForm.js";
 
 const Resources = connection.define(
   "resources",
@@ -61,14 +61,14 @@ const Resources = connection.define(
 
 export default Resources;
 
-// relación entre silvers y resources
+// relación entre loneliness_form y resources
 
-Resources.belongsTo(Silver, {
-  foreignKey: "silver_id",
-  targetKey: "silver_id",
+Resources.hasOne(LonelyForm, {
+  foreignKey: "lon_form_id",
+  targetKey: "lon_form_id",
 });
 
-Silver.hasMany(Resources, {
-  foreignKey: "silver_id",
-  sourceKey: "silver_id",
+LonelyForm.hasOne(Resources, {
+  foreignKey: "lon_form_id",
+  targetKey: "lon_form_id",
 });

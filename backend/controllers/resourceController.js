@@ -60,9 +60,9 @@ const getById = async (req, res) => {
 //crear un nuevo recurso
 const create = async (req, res) => {
   try {
-    const silver_id = req.params.id;
+    const lon_form_id = req.params.id;
     const newResource = await Resources.create({
-      silver_id: silver_id,
+      lon_form_id: lon_form_id,
       day_care_center: req.body.day_care_center,
       cofee_n_chat: req.body.cofee_n_chat,
       walking_club: req.body.walking_club,

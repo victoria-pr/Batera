@@ -1,7 +1,6 @@
 import Agent from "../models/agents.js";
 import Silver from "../models/silvers.js";
 import LonelyForm from "../models/lonelyForm.js";
-import Resources from "../models/resource.js";
 
 const getAll = async (req, res) => {
   try {
@@ -99,24 +98,6 @@ const getById = async (req, res) => {
             "q10",
             "sum",
             "observations",
-          ],
-        },
-        {
-          model: Resources,
-          attributes: [
-            "resources_id",
-            "day_care_center",
-            "day_care_center",
-            "cofee_n_chat",
-            "walking_club",
-            "reading_club",
-            "home_assistance",
-            "phone_assistance",
-            "garden_group",
-            "cooking_group",
-            "cycling_group",
-            "board_games",
-            "movie_club",
           ],
         },
       ],
