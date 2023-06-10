@@ -20,4 +20,9 @@ router.post("/:id/create", (req, res) => {
   resourceController.create(req, res);
 });
 
+// ruta para eliminar un recurso
+router.delete("/:id/delete", (req, res) => {
+  resourceController.deleteById(req, res);
+});
+
 export default router;
