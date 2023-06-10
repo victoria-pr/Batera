@@ -10,12 +10,6 @@ body {
   display: flex;
   flex-direction: column;
 }
-.LogoBatera {
-  position: relative;
-  top: 16px;
-  left: 24px;
-  width: 100px;
-}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",

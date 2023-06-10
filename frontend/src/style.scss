@@ -285,7 +285,7 @@
     }
   }
 }
-@media screen and (max-height: 768px) {
+@media screen and (max-height: 850px) {
   .signupsection {
     .form-container {
       width: 80%;
@@ -301,4 +301,11 @@
       }
     }
   }
+}
+
+.LogoBatera {
+  position: absolute;
+  top: 16px;
+  left: 24px;
+  width: 100px;
 }

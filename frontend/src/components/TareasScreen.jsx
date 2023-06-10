@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import PerfilSilverScreen from "./PerfilSilverScreen";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import "../screens.scss";
 
 function Tareas() {
   const [data, setData] = useState([]);
@@ -38,30 +39,38 @@ function Tareas() {
 
   if (!data) return <div>Loading...</div>;
   return (
-    <section>
-      <h1>TAREAS</h1>
-      <article className="tasks">Reuniones</article>
-      <article className="mySilvers">
-        <h1>Perfil Silver</h1>
-        <div className="silvers-container">
-          {data.silvers
-            ?.map((silver, index) => {
-              return (
-                <Link
-                  key={index}
-                  to={`/perfilSilver/${silver.silver_id}`}
-                  className="silver-card"
-                >
-                  <h2>{silver.name}</h2>
-                  <h2>{silver.surname}</h2>
-                  <p>{silver.address}</p>
-                  <p>{silver.silver_id}</p>
-                </Link>
-              );
-            })
-            .slice(-3)}
-        </div>
-      </article>
+    <section className="tareassection">
+      <div className="tareas-container">
+        <h1 className="maintitulo">TAREAS</h1>
+        <article>
+          <h1>Reuniones</h1>
+          <div className="task">Reunión con departamento RRHH</div>
+          <div className="task">Asignación proyectos 2024</div>
+        </article>
+        <article>
+          <h1>Valoraciones del día</h1>
+          <div>
+            {data.silvers
+              ?.map((silver, index) => {
+                return (
+                  <Link
+                    key={index}
+                    to={`/perfilSilver/${silver.silver_id}`}
+                    className="silver-card"
+                  >
+                    <div className="task">
+                      <h2>{silver.name}</h2>
+                      <h2>{silver.surname}</h2>
+                      <p>{silver.address}</p>
+                      <p>{silver.silver_id}</p>
+                    </div>
+                  </Link>
+                );
+              })
+              .slice(-3)}
+          </div>
+        </article>
+      </div>
     </section>
   );
   return;
