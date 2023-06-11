@@ -40,8 +40,8 @@ const NewFormScreen = () => {
     if (name === "date" || name === "observations") {
       setForm({ ...form, [name]: value });
     } else {
-      const updatedForm = { ...form, [name]: value };
-      const sum = Object.keys(updatedForm)
+      const updatedForm = { ...form, [name]: value }; // Actualizar el valor de la pregunta
+      const sum = Object.keys(updatedForm) // Obtener todas las claves del objeto form (q1, q2, q3, etc.)
         .filter((key) => key.startsWith("q")) // Filtrar solo las claves que comienzan con "q"
         .reduce(
           (accumulator, key) => accumulator + Number(updatedForm[key]),

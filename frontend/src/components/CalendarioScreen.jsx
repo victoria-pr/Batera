@@ -1,9 +1,51 @@
 import React from "react";
+import FullCalendar from "@fullcalendar/react";
+import dayGridPlugin from "@fullcalendar/daygrid";
+import timeGridPlugin from "@fullcalendar/timegrid";
+import interactionPlugin from "@fullcalendar/interaction";
+import "../style.scss";
 
 function Calendario() {
+  const eventos = [
+    {
+      title: "Valoraciones",
+      start: "2023-06-01",
+      end: "2023-06-16",
+      note: "Reagendadas",
+    },
+    {
+      title: "Evento 2",
+      start: "2023-06-05",
+      note: "Nota para el evento 2",
+    },
+  ];
+
+  const renderEventContent = (eventInfo) => {
+    return (
+      <div>
+        <b>{eventInfo.timeText}</b>
+        <p>{eventInfo.event.title}</p>
+        <p>{eventInfo.event.extendedProps.note}</p>
+      </div>
+    );
+  };
+
   return (
-    <img src="https://s3.ppllstatics.com/elcorreo/www/multimedia/202205/03/media/cortadas/calendario-laboral-euskadi-2023-kfsD-U1601873716258laB-624x1800@El%20Correo.png" />
+    <div className="calendario-container">
+      <div className="calendario">
+        <FullCalendar
+          plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
+          initialView="dayGridMonth"
+          headerToolbar={{
+            start: "today prev,next",
+            center: "title",
+            end: "dayGridMonth,timeGridWeek,timeGridDay",
+          }}
+          events={eventos}
+          eventContent={renderEventContent}
+        />
+      </div>
+    </div>
   );
 }
-
 export default Calendario;

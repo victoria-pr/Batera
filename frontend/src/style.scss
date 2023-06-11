@@ -311,3 +311,36 @@
   left: 24px;
   width: 100px;
 }
+
+//CALENDARIO
+.calendario-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  height: 100vh;
+}
+
+/* Estilos para los elementos del calendario */
+.fc-header-toolbar {
+  background-color: rgb(37, 123, 121);
+  color: white;
+}
+
+.fc-daygrid-day {
+  background-color: white;
+}
+
+.fc-daygrid-day.fc-today {
+  background-color: black;
+  color: white;
+}
+
+.fc-event {
+  background-color: rgb(37, 123, 121);
+  color: white;
+}
+
+.fc-daygrid-day-number {
+  color: black;
+}

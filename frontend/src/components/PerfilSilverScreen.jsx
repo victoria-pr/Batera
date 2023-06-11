@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import RecursosScreen from "./RecursosScreen";
 import Plot from "react-plotly.js";
+import NavBar from "./NavBar";
 
 const PerfilSilverScreen = () => {
   const [data, setData] = useState([]);
@@ -46,17 +47,86 @@ const PerfilSilverScreen = () => {
 
   if (!data) return <div>Loading...</div>;
   return (
-    <section>
-      <h1>Perfil Silver</h1>
-      <div className="silvers-container">
-        <div className="silver-card">
-          <h2>{data.name}</h2>
-          <h2>{data.surname}</h2>
-          <p>{data.address}</p>
-          <p>{data.silver_id}</p>
+    <section className="silversection">
+      <NavBar />
+      <div className="expediente">
+        <h1>Número Expediente</h1>
+        <h2>{data.silver_id}</h2>
+      </div>
+      <div className="perfil-container">
+        <div className="personaldata-card">
+          <h1>Datos personales</h1>
+          <div>
+            <h2>Nombre</h2>
+            <p>{data.name}</p>
+          </div>
+
+          <div>
+            <h2>Apellidos</h2>
+            <p>{data.surname}</p>
+          </div>
+
+          <div>
+            <h2>DNI/NIE</h2>
+            <p>{data.dni_nie}</p>
+          </div>
+
+          <div>
+            <h2>Fecha de Nacimiento</h2>
+            <p>{data.birthday}</p>
+          </div>
+
+          <div>
+            <h2>Número S.S</h2>
+            <p>{data.social_security_number}</p>
+          </div>
+
+          <div>
+            <h2>Teléfono</h2>
+            <p>{data.telephone}</p>
+          </div>
+
+          <div>
+            <h2>Correo electrónico</h2>
+            <p>{data.email}</p>
+          </div>
+
+          <div>
+            <h2>Domicilio</h2>
+            <p>{data.address}</p>
+          </div>
+
+          <div>
+            <h2>Localidad</h2>
+            <p>{data.city}</p>
+          </div>
+
+          <div>
+            <h2>CP</h2>
+            <p>{data.postal_code}</p>
+          </div>
+
+          <div className="contactdata-card"></div>
+          <h1>Persona de contacto</h1>
+          <div>
+            <h2>Nombre</h2>
+            <p>{data.contact_person}</p>
+          </div>
+
+          <div>
+            <h2>Parentesco</h2>
+            <p>{data.contact_p_relation}</p>
+          </div>
+
+          <div>
+            <h2>Teléfono</h2>
+            <p>{data.contact_p_telephone}</p>
+          </div>
         </div>
-        <h1>Formularios</h1>
-        <div className="silvers-forms">
+      </div>
+      <div className="valoration-card">
+        <h1>VALORACIONES REALIZADAS</h1>
+        <div className="valoration">
           {data.loneliness_forms?.map((loneliness, index) => {
             return (
               <Link
@@ -70,40 +140,43 @@ const PerfilSilverScreen = () => {
             );
           })}
         </div>
+        <div className="newvaloration">
+          <Link to={`/formularioSilver/${data.silver_id}/create`}>
+            <button>Nueva Valoración</button>
+          </Link>
+        </div>
       </div>
-      <Link to={`/formularioSilver/${data.silver_id}/create`}>
-        <button>Crear formulario</button>
-      </Link>
-
-      <h1>Gráficas</h1>
-      <Plot
-        data={[
-          {
-            type: "scatter",
-            mode: "lines+markers",
-          },
-          {
-            type: "bar",
-            x: [1, 2, 3],
-            y: suma,
-            marker: {
-              color: "#0A7F8D",
+      <div className="graphic-card">
+        <h1>Gráfico</h1>
+        <Plot
+          data={[
+            {
+              type: "scatter",
+              mode: "lines+markers",
             },
-            text: suma,
-            textposition: "auto",
-            hoverinfo: "none",
-          },
-        ]}
-        layout={{
-          width: 420,
-          height: 340,
-          title: "Evolución valoraciones",
-          xaxis: {
-            tickmode: "array",
-            tickvals: [1, 2, 3],
-          },
-        }}
-      />
+            {
+              type: "bar",
+              x: [1, 2, 3],
+              y: suma,
+              marker: {
+                color: "#0A7F8D",
+              },
+              text: suma,
+              textposition: "auto",
+              hoverinfo: "none",
+            },
+          ]}
+          layout={{
+            width: 420,
+            height: 340,
+            title: "Evolución valoraciones",
+            xaxis: {
+              tickmode: "array",
+              tickvals: [1, 2, 3],
+            },
+          }}
+        />
+      </div>
     </section>
   );
 };
