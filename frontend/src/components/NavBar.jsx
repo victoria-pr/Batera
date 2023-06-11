@@ -4,7 +4,7 @@ import axios from "axios";
 
 function NavBar() {
   return (
-    <nav>
+    <nav className="navBar">
       <Link to="/" className="Logo">
         <img src="./logoBatera.png" className="LogoBatera" alt="Logo Batera" />
       </Link>

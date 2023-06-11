@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useSearchParams, Link } from "react-router-dom";
 import Axios from "axios";
+import NavBar from "./NavBar";
 
 const Login = () => {
   const [errorMessage, setErrorMessage] = useState("");
@@ -49,39 +50,42 @@ const Login = () => {
 
   return (
     <section className="loginsection">
+      <NavBar />
       <p>{errorMessage}</p>
-      <div className="form-container">
-        <h1 className="login-tittle">Inicia sesión</h1>
-        <form action="" onSubmit={submit}>
-          <div>
-            <label htmlFor="email">ID usuario </label>
-            <input
-              className="loginInput"
-              type="email"
-              name="email"
-              id="email"
-            />
-          </div>
+      <div className="login-container">
+        <div className="form-container">
+          <h1 className="login-tittle">Inicia sesión</h1>
+          <form action="" onSubmit={submit}>
+            <div>
+              <label htmlFor="email">ID usuario </label>
+              <input
+                className="loginInput"
+                type="email"
+                name="email"
+                id="email"
+              />
+            </div>
 
-          <div>
-            <label htmlFor="password"> Contraseña </label>
-            <input
-              className="loginInput"
-              type="password"
-              name="password"
-              id="password"
-            />
-          </div>
+            <div>
+              <label htmlFor="password"> Contraseña </label>
+              <input
+                className="loginInput"
+                type="password"
+                name="password"
+                id="password"
+              />
+            </div>
 
-          <div className="btns">
-            <button className="btn-page">Entrar</button>
-          </div>
-        </form>
+            <div className="btns">
+              <button className="btn-page">Entrar</button>
+            </div>
+          </form>
 
-        <p className="text-sm">
-          ¿No tienes cuenta?
-          <Link to="/register"> Regístrate</Link>
-        </p>
+          <p className="text-sm">
+            ¿No tienes cuenta?
+            <Link to="/register"> Regístrate</Link>
+          </p>
+        </div>
       </div>
     </section>
   );
