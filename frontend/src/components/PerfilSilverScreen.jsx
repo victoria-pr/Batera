@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import RecursosScreen from "./RecursosScreen";
+import Plot from "react-plotly.js";
 
 const PerfilSilverScreen = () => {
   const [data, setData] = useState([]);
@@ -40,6 +41,9 @@ const PerfilSilverScreen = () => {
     getDataById(id);
   }, [id]);
 
+  const suma = data.loneliness_forms?.map((loneliness) => loneliness.sum);
+  /* const fecha = data.loneliness_forms?.map((loneliness) => loneliness.date); */
+
   if (!data) return <div>Loading...</div>;
   return (
     <section>
@@ -70,6 +74,36 @@ const PerfilSilverScreen = () => {
       <Link to={`/formularioSilver/${data.silver_id}/create`}>
         <button>Crear formulario</button>
       </Link>
+
+      <h1>Gráficas</h1>
+      <Plot
+        data={[
+          {
+            type: "scatter",
+            mode: "lines+markers",
+          },
+          {
+            type: "bar",
+            x: [1, 2, 3],
+            y: suma,
+            marker: {
+              color: "#0A7F8D",
+            },
+            text: suma,
+            textposition: "auto",
+            hoverinfo: "none",
+          },
+        ]}
+        layout={{
+          width: 420,
+          height: 340,
+          title: "Evolución valoraciones",
+          xaxis: {
+            tickmode: "array",
+            tickvals: [1, 2, 3],
+          },
+        }}
+      />
     </section>
   );
 };
