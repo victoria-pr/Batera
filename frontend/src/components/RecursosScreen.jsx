@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import ModeloScreen from "./ModeloScreen";
 
 function Recursos({ data, setData }) {
   const navigate = useNavigate();
@@ -68,7 +69,7 @@ function Recursos({ data, setData }) {
             ) : null}
             {data.resource?.cofee_n_chat === 1 ? (
               <div className="resource-particular-card">
-                <h2>Café y charla</h2>
+                <h2>Café y charlas</h2>
               </div>
             ) : null}
             {data.resource?.cooking_group === 1 ? (
@@ -113,7 +114,7 @@ function Recursos({ data, setData }) {
             ) : null}
             {data.resource?.walking_club === 1 ? (
               <div className="resource-particular-card">
-                <h2>Club de paseo</h2>
+                <h2>Grupo de caminar</h2>
               </div>
             ) : null}
           </div>
@@ -122,6 +123,7 @@ function Recursos({ data, setData }) {
 
       {showFormResource ? (
         <div className="new-resource">
+          <ModeloScreen data={data} />
           <form>
             <button
               type="button"
