@@ -18,12 +18,38 @@ const NewFormScreen = () => {
     q8: "",
     q9: "",
     q10: "",
-    sum: "",
+    values: {
+      q1: 0,
+      q2: 0,
+      q3: 0,
+      q4: 0,
+      q5: 0,
+      q6: 0,
+      q7: 0,
+      q8: 0,
+      q9: 0,
+      q10: 0,
+    },
+    sum: 0,
     observations: "",
   });
 
   const handleChange = (event) => {
-    setForm({ ...form, [event.target.name]: event.target.value });
+    const { name, value } = event.target;
+
+    if (name === "date" || name === "observations") {
+      setForm({ ...form, [name]: value });
+    } else {
+      const updatedForm = { ...form, [name]: value };
+      const sum = Object.keys(updatedForm)
+        .filter((key) => key.startsWith("q")) // Filtrar solo las claves que comienzan con "q"
+        .reduce(
+          (accumulator, key) => accumulator + Number(updatedForm[key]),
+          0
+        );
+
+      setForm({ ...updatedForm, sum });
+    }
   };
 
   const createFormWithID = async (event) => {
