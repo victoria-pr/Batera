@@ -69,37 +69,39 @@ const Register = () => {
   return (
     <section className="signupsection">
       <NavBar />
-      <div className="form-container">
-        <h1 className="maintitulo">Regístrate</h1>
-        <form action="" onSubmit={submit}>
-          <div>
-            <label htmlFor="email">Dirección de correo {errorEmail}</label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              className="loginInput"
-            />
-          </div>
-          <div>
-            <label htmlFor="password">Contraseña {errorPassword}</label>
-            <input
-              type="password"
-              name="password"
-              id="password"
-              className="loginInput"
-            />
-          </div>
-          <div className="btns">
-            <button className="btn-page" type="submit">
-              Registrarse
-            </button>
-          </div>
-        </form>
-        <p className="text-sm">
-          ¿Ya tienes cuenta?
-          <Link to="/login"> Inicia sesión</Link>
-        </p>
+      <div className="register-container">
+        <div className="form-container">
+          <h1 className="maintitulo">Regístrate</h1>
+          <form action="" onSubmit={submit}>
+            <div>
+              <label htmlFor="email">Dirección de correo {errorEmail}</label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                className="loginInput"
+              />
+            </div>
+            <div>
+              <label htmlFor="password">Contraseña {errorPassword}</label>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                className="loginInput"
+              />
+            </div>
+            <div className="btns">
+              <button className="btn-page" type="submit">
+                Registrarse
+              </button>
+            </div>
+          </form>
+          <p className="text-sm">
+            ¿Ya tienes cuenta?
+            <Link to="/login"> Inicia sesión</Link>
+          </p>
+        </div>
       </div>
       <p>{requestError}</p>
     </section>

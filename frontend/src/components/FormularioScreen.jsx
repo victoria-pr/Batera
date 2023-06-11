@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import RecursosScreen from "./RecursosScreen";
+import ModeloScreen from "./ModeloScreen";
 
 const FormularioScreen = () => {
   const [data, setData] = useState([]);
@@ -98,6 +99,7 @@ const FormularioScreen = () => {
         </button>
       </div>
       {data && <RecursosScreen data={data} setData={setData} />}
+      <ModeloScreen data={data} />
     </section>
   );
 };

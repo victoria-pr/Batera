@@ -11,12 +11,12 @@ router.get("/", (req, res) => {
 });
 
 // ruta para obtener un recurso por id
-router.get("/:id", (req, res) => {
+router.get("/:id", verified, (req, res) => {
   resourceController.getById(req, res);
 });
 
 // ruta para crear un recurso
-router.post("/:id/create", (req, res) => {
+router.post("/:id/create", verified, (req, res) => {
   resourceController.create(req, res);
 });
 
