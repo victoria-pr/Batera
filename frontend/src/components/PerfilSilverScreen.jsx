@@ -2,6 +2,9 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import RecursosScreen from "./RecursosScreen";
+import Plot from "react-plotly.js";
+import "../screens.scss";
+import NavBar from "./NavBar";
 
 const PerfilSilverScreen = () => {
   const [data, setData] = useState([]);
@@ -40,36 +43,146 @@ const PerfilSilverScreen = () => {
     getDataById(id);
   }, [id]);
 
+  const suma = data.loneliness_forms?.map((loneliness) => loneliness.sum);
+  /* const fecha = data.loneliness_forms?.map((loneliness) => loneliness.date); */
+
   if (!data) return <div>Loading...</div>;
   return (
-    <section>
-      <h1>Perfil Silver</h1>
-      <div className="silvers-container">
-        <div className="silver-card">
-          <h2>{data.name}</h2>
-          <h2>{data.surname}</h2>
-          <p>{data.address}</p>
-          <p>{data.silver_id}</p>
-        </div>
-        <h1>Formularios</h1>
-        <div className="silvers-forms">
-          {data.loneliness_forms?.map((loneliness, index) => {
-            return (
-              <Link
-                key={index}
-                to={`/formularioSilver/${loneliness.lon_form_id}`}
-                className="form-card"
-              >
-                <h2>{loneliness.loneliness_id}</h2>
-                <h2>{loneliness.date}</h2>
+    <section className="silversection">
+      <NavBar />
+      <div className="perfil">
+        <div className="perfil-container">
+          <article className="perfil-article">
+            <h2>Número Expediente</h2>
+            <h2>{data.silver_id}</h2>
+          </article>
+          <h2>Datos personales</h2>
+          <article className="data-article">
+            {/* <div className="personaldata-card"> */}
+            <div className="info-card">
+              <h2>Nombre</h2>
+              <p>{data.name}</p>
+            </div>
+
+            <div className="info-card">
+              <h2>Apellidos</h2>
+              <p>{data.surname}</p>
+            </div>
+
+            <div className="info-card">
+              <h2>DNI/NIE</h2>
+              <p>{data.dni_nie}</p>
+            </div>
+
+            <div className="info-card">
+              <h2>Fecha de Nacimiento</h2>
+              <p>{data.birthday}</p>
+            </div>
+
+            <div className="info-card">
+              <h2>Número S.S</h2>
+              <p>{data.social_security_number}</p>
+            </div>
+
+            <div className="info-card">
+              <h2>Teléfono</h2>
+              <p>{data.telephone}</p>
+            </div>
+
+            <div className="info-card">
+              <h2>Correo electrónico</h2>
+              <p>{data.email}</p>
+            </div>
+
+            <div className="info-card">
+              <h2>Domicilio</h2>
+              <p>{data.address}</p>
+            </div>
+
+            <div className="info-card">
+              <h2>Localidad</h2>
+              <p>{data.city}</p>
+            </div>
+
+            <div className="info-card">
+              <h2>CP</h2>
+              <p>{data.postal_code}</p>
+            </div>
+
+            <article className="data-article">
+              <h2>Persona de contacto</h2>
+              <div>
+                <h2>Nombre</h2>
+                <p>{data.contact_person}</p>
+              </div>
+
+              <div>
+                <h2>Parentesco</h2>
+                <p>{data.contact_p_relation}</p>
+              </div>
+
+              <div>
+                <h2>Teléfono</h2>
+                <p>{data.contact_p_telephone}</p>
+              </div>
+            </article>
+            {/*  </div> */}
+          </article>
+          <article className="perfil-article">
+            <h2>VALORACIONES REALIZADAS</h2>
+            <div className="valoration-container">
+              {data.loneliness_forms?.map((loneliness, index) => {
+                return (
+                  <Link
+                    key={index}
+                    to={`/formularioSilver/${loneliness.lon_form_id}`}
+                    className="valoration-card"
+                  >
+                    <h2>{loneliness.loneliness_id}</h2>
+                    <h2>{loneliness.date}</h2>
+                  </Link>
+                );
+              })}
+            </div>
+            <div className="newvaloration">
+              <Link to={`/formularioSilver/${data.silver_id}/create`}>
+                <button>Nueva Valoración</button>
               </Link>
-            );
-          })}
+            </div>
+          </article>
+          <div className="graphic-card">
+            <h1>Gráfico</h1>
+            <Plot
+              data={[
+                {
+                  type: "scatter",
+                  mode: "lines+markers",
+                },
+                {
+                  type: "bar",
+                  x: [1, 2, 3],
+                  y: suma,
+                  marker: {
+                    color: "#0A7F8D",
+                  },
+                  text: suma,
+                  textposition: "auto",
+                  hoverinfo: "none",
+                },
+              ]}
+              layout={{
+                width: 420,
+                height: 340,
+                title: "Evolución valoraciones",
+                xaxis: {
+                  tickmode: "array",
+                  tickvals: [1, 2, 3],
+                },
+              }}
+            />
+          </div>
         </div>
       </div>
-      <Link to={`/formularioSilver/${data.silver_id}/create`}>
-        <button>Crear formulario</button>
-      </Link>
     </section>
   );
 };

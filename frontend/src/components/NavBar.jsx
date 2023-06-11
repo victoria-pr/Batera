@@ -6,7 +6,7 @@ function NavBar() {
   return (
     <nav className="navBar">
       <Link to="/" className="Logo">
-        <img src="./logoBatera.png" className="LogoBatera" alt="Logo Batera" />
+        <img src="../logoBatera.png" className="LogoBatera" alt="Logo Batera" />
       </Link>
     </nav>
   );
