@@ -30,12 +30,6 @@ function Home() {
     }
   };
 
-  const logout = () => {
-    localStorage.removeItem("infoUser");
-    setLoged(false);
-    navigate("/login");
-  };
-
   useEffect(() => {
     getData();
   }, []);
@@ -51,7 +45,7 @@ function Home() {
     <section className="homensection">
       <NavBar />
       <div className="home-container">
-        <div className="btn-page">
+        <div className="menu-container">
           <button className="btns" onClick={() => handleButtonClick("/tareas")}>
             <svg
               width="96"
@@ -76,8 +70,7 @@ function Home() {
             </svg>
             Tareas
           </button>
-        </div>
-        <div className="btn-page">
+
           <button
             className="btns"
             onClick={() => handleButtonClick("/calendario")}
@@ -96,8 +89,7 @@ function Home() {
             </svg>
             Calendario
           </button>
-        </div>
-        <div className="btn-page">
+
           <button className="btns" onClick={() => handleButtonClick("/perfil")}>
             <svg
               width="96"
@@ -120,8 +112,7 @@ function Home() {
             </svg>
             Perfil
           </button>
-        </div>
-        <div className="btn-page">
+
           <button
             className="btns"
             onClick={() => handleButtonClick("/recursos")}
@@ -142,8 +133,7 @@ function Home() {
             </svg>
             Recursos
           </button>
-        </div>
-        <div className="btn-page">
+
           <button
             className="btns"
             onClick={() => handleButtonClick("/valoraciones")}
@@ -162,8 +152,7 @@ function Home() {
             </svg>
             Mis valoraciones
           </button>
-        </div>
-        <div className="btn-page">
+
           <button
             className="btns"
             onClick={() => handleButtonClick("/boletin")}
@@ -186,12 +175,6 @@ function Home() {
           </button>
         </div>
       </div>
-
-      {loged && (
-        <button className="logOut" onClick={logout}>
-          Salir
-        </button>
-      )}
     </section>
   );
 }
