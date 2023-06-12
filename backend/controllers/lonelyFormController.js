@@ -77,6 +77,49 @@ const getById = async (req, res) => {
             "contact_p_relation",
             "contact_p_telephone",
           ],
+          include: [
+            {
+              model: LonelyForm,
+              attributes: [
+                "lon_form_id",
+                "date",
+                "q1",
+                "q2",
+                "q3",
+                "q4",
+                "q5",
+                "q6",
+                "q7",
+                "q8",
+                "q9",
+                "q10",
+                "sum",
+                "enviar",
+                "observations",
+              ],
+
+              include: [
+                {
+                  model: Resources,
+                  attributes: [
+                    "resources_id",
+                    "day_care_center",
+                    "cofee_n_chat",
+                    "walking_club",
+                    "reading_club",
+                    "movie_club",
+                    "home_assistance",
+                    "phone_assistance",
+                    "garden_group",
+                    "cooking_group",
+                    "cycling_group",
+                    "board_games",
+                    "lon_form_id",
+                  ],
+                },
+              ],
+            },
+          ],
         },
 
         {
