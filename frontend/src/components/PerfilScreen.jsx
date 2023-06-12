@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import NavBarIcons from "./NavBarIcons";
 
 function Perfil() {
   const [loged, setLoged] = useState(localStorage.getItem("infoUser"));
@@ -12,6 +13,7 @@ function Perfil() {
   };
   return (
     <div>
+      <NavBarIcons />
       Perfil
       {loged && (
         <button className="logOut" onClick={logout}>
