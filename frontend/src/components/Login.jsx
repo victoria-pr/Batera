@@ -50,10 +50,10 @@ const Login = () => {
 
   return (
     <section className="loginsection">
-      <NavBar />
       <p>{errorMessage}</p>
-      <div className="login-container">
-        <div className="form-container">
+      <div className="form-container">
+        <NavBar />
+        <div className="login-container">
           <h1 className="login-tittle">Inicia sesión</h1>
           <form action="" onSubmit={submit}>
             <div>

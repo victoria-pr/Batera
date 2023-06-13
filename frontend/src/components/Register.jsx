@@ -68,9 +68,9 @@ const Register = () => {
 
   return (
     <section className="signupsection">
-      <NavBar />
-      <div className="register-container">
-        <div className="form-container">
+      <div className="form-container">
+        <NavBar />
+        <div className="register-container">
           <h1 className="maintitulo">Regístrate</h1>
           <form action="" onSubmit={submit}>
             <div>
