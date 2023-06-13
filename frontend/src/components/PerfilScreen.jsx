@@ -65,7 +65,7 @@ function Perfil() {
             </p>
           </div>
 
-          <div className="btns">
+          <div className="btns-container">
             {loged && (
               <button className="logOut" onClick={logout}>
                 Cerrar sesión
@@ -75,7 +75,6 @@ function Perfil() {
         </div>
       </section>
     </article>
-
   );
 }
 
