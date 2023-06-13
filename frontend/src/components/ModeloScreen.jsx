@@ -4,10 +4,16 @@ import { useNavigate, useParams } from "react-router-dom";
 import RecursosScreen from "./RecursosScreen";
 
 const ModeloScreen = ({ data }) => {
+  const [modelo, setModelo] = useState();
+  const [showLastResource, setShowLastResource] = useState(false);
+  const navigate = useNavigate();
   const infoUser = localStorage.getItem("infoUser");
   const localUser = JSON.parse(infoUser);
-  const [modelo, setModelo] = useState();
   console.log("Modeloorl", modelo);
+
+  useEffect(() => {
+    console.log("La data que tenemos aquí en el model", data);
+  }, [data]);
 
   function calcularEdad(fechaNacimiento) {
     const fechaActual = new Date();
@@ -110,40 +116,138 @@ const ModeloScreen = ({ data }) => {
     }
   };
 
-  return (
-    <div>
-      ModeloScreen
-      <div className="prediction-container">
-        <h2>Predicción:</h2>
-        <button
-          className="predict-button"
-          onClick={() => {
-            obtenerPrediccion();
-          }}
-        >
-          Obtener recomendación
-        </button>
+  const [lastRecurso, setLastRecurso] = useState({});
+  const obtenerUltimoRecurso = async () => {
+    setLastRecurso(data.silver.loneliness_forms.slice(-1)[0]);
+    if (data.silver.loneliness_forms.slice(-1)[0].resource === null) {
+      setLastRecurso(data.silver.loneliness_forms.slice(-2)[0]);
+    }
+    if (
+      data.silver.loneliness_forms.slice(-1)[0].resource === null &&
+      data.silver.loneliness_forms.slice(-2)[0].resource === null
+    ) {
+      setLastRecurso(data.silver.loneliness_forms.slice(-3)[0]);
+    }
+    if (
+      data.silver.loneliness_forms.slice(-1)[0].resource === null &&
+      data.silver.loneliness_forms.slice(-2)[0].resource === null &&
+      data.silver.loneliness_forms.slice(-3)[0].resource === null
+    ) {
+      setLastRecurso(data.silver.loneliness_forms.slice(-4)[0]);
+    }
+  };
 
-        <div className="prediction">
-          Recomendaciones:
-          <p>{modelo?.actividad_1 ? modelo.actividad_1 : ""}</p>
-          <p>{modelo?.actividad_2 ? modelo.actividad_2 : ""}</p>
-          <p>{modelo?.actividad_3 ? modelo.actividad_3 : ""}</p>
-          <p>{modelo?.actividad_4 ? modelo.actividad_4 : ""}</p>
-          <p>{modelo?.actividad_5 ? modelo.actividad_5 : ""}</p>
-          <p>{modelo?.actividad_6 ? modelo.actividad_6 : ""}</p>
-          <p>{modelo?.actividad_7 ? modelo.actividad_7 : ""}</p>
-          <p>{modelo?.actividad_8 ? modelo.actividad_8 : ""}</p>
-          <p>{modelo?.actividad_9 ? modelo.actividad_9 : ""}</p>
-          <p>{modelo?.actividad_10 ? modelo.actividad_10 : ""}</p>
-          <p>{modelo?.actividad_11 ? modelo.actividad_11 : ""}</p>
-          {/*           <p>{modelo.actividad_1 ? modelo.actividad_1 : ""}</p>
-           */}{" "}
-          {/*           <h3>Modelo: {modelo}</h3>
-           */}{" "}
+  useEffect(() => {
+    obtenerUltimoRecurso();
+  }, []);
+
+  return (
+    <article className="modeloscreen">
+      <div className="info-container">
+        <div className="prediction-container">
+          {!modelo ? (
+            <button
+              className="predict-button"
+              onClick={() => {
+                obtenerPrediccion();
+              }}
+            >
+              Obtener recomendación
+            </button>
+          ) : (
+            <div className="prediction">
+              <button
+                className="close-prediction"
+                onClick={() => {
+                  setModelo(null);
+                }}
+              >
+                Cerrar recomendación
+              </button>
+              {modelo?.actividad_1 ? <p>-{modelo.actividad_1}</p> : null}
+              {modelo?.actividad_2 ? <p>-{modelo.actividad_2}</p> : null}
+              {modelo?.actividad_3 ? <p>-{modelo.actividad_3}</p> : null}
+              {modelo?.actividad_4 ? <p>-{modelo.actividad_4}</p> : null}
+              {modelo?.actividad_5 ? <p>-{modelo.actividad_5}</p> : null}
+              {modelo?.actividad_6 ? <p>-{modelo.actividad_6}</p> : null}
+              {modelo?.actividad_7 ? <p>-{modelo.actividad_7}</p> : null}
+              {modelo?.actividad_8 ? <p>-{modelo.actividad_8}</p> : null}
+              {modelo?.actividad_9 ? <p>-{modelo.actividad_9}</p> : null}
+              {modelo?.actividad_10 ? <p>-{modelo.actividad_10}</p> : null}
+              {modelo?.actividad_11 ? <p>-{modelo.actividad_11}</p> : null}
+            </div>
+          )}
         </div>
+
+        {!lastRecurso ? (
+          <p>No hay recursos anteriores</p>
+        ) : (
+          //Aqui va el boton de ver el ultimo recurso
+          <div className="last-resource">
+            {!showLastResource ? (
+              <button
+                className="last-resource-button"
+                onClick={() => {
+                  setShowLastResource(!showLastResource);
+                }}
+              >
+                Ver último recurso adjudicado
+              </button>
+            ) : (
+              ""
+            )}
+
+            {showLastResource ? (
+              <div className="last-resource-list">
+                <button
+                  className="close-last-resource"
+                  onClick={() => {
+                    setShowLastResource(!showLastResource);
+                  }}
+                >
+                  Cerrar último recurso adjudicado
+                </button>
+                {lastRecurso.resource?.board_games === 1 ? (
+                  <p>-Juegos de mesa</p>
+                ) : null}
+                {lastRecurso.resource?.cofee_n_chat === 1 ? (
+                  <p>-Café y charlas</p>
+                ) : null}
+                {lastRecurso.resource?.cooking_group === 1 ? (
+                  <p>-Grupo de cocina</p>
+                ) : null}
+                {lastRecurso.resource?.cycling_group === 1 ? (
+                  <p>-Grupo de ciclismo</p>
+                ) : null}
+                {lastRecurso.resource?.day_care_center === 1 ? (
+                  <p>-Centro de día</p>
+                ) : null}
+                {lastRecurso.resource?.garden_group === 1 ? (
+                  <p>-Grupo de jardinería</p>
+                ) : null}
+                {lastRecurso.resource?.home_assistance === 1 ? (
+                  <p>-Asistencia domiciliaria</p>
+                ) : null}
+                {lastRecurso.resource?.movie_club === 1 ? (
+                  <p>-Club de cine</p>
+                ) : null}
+                {lastRecurso.resource?.phone_assistance === 1 ? (
+                  <p>-Asistencia telefónica</p>
+                ) : null}
+                {lastRecurso.resource?.reading_club === 1 ? (
+                  <p>-Club de lectura</p>
+                ) : null}
+                {lastRecurso.resource?.walking_club === 1 ? (
+                  <p>-Grupo de caminar</p>
+                ) : null}
+              </div>
+            ) : (
+              ""
+            )}
+          </div>
+        )}
       </div>
-    </div>
+    </article>
   );
 };
 
