@@ -7,6 +7,7 @@ import "./reset.scss";
 import "./style.scss";
 import "./newForm.scss";
 import "./formScreen.scss";
+import "./perfilScren.scss";
 
 ReactDOM.render(
   <React.StrictMode>
