@@ -1,13 +1,13 @@
 import React from "react";
 import NavBarIcons from "./NavBarIcons";
 
-function Valoraciones() {
+function RecursosList() {
   return (
     <div>
       <NavBarIcons />
-      <div>Valoraciones</div>
+      <div>Recursos</div>
     </div>
   );
 }
 
-export default Valoraciones;
+export default RecursosList;

@@ -4,7 +4,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import RecursosScreen from "./RecursosScreen";
 import Plot from "react-plotly.js";
 import "../screens.scss";
-import NavBar from "./NavBar";
+import NavBarIcons from "./NavBarIcons";
 
 const PerfilSilverScreen = () => {
   const [data, setData] = useState([]);
@@ -49,14 +49,14 @@ const PerfilSilverScreen = () => {
   if (!data) return <div>Loading...</div>;
   return (
     <section className="silversection">
-      <NavBar />
+      <NavBarIcons />
       <div className="perfil">
         <div className="perfil-container">
           <article className="perfil-article">
             <h2>Número Expediente</h2>
             <h2>{data.silver_id}</h2>
           </article>
-          <h2>Datos personales</h2>
+          <h2 className="maindatos">Datos personales</h2>
           <article className="data-article">
             {/* <div className="personaldata-card"> */}
             <div className="info-card">
@@ -108,11 +108,19 @@ const PerfilSilverScreen = () => {
               <h2>CP</h2>
               <p>{data.postal_code}</p>
             </div>
-
-            <article className="data-article">
-              <h2>Persona de contacto</h2>
+            <svg
+              width="600"
+              height="2"
+              viewBox="0 0 600 2"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="redline"
+            >
+              <line y1="1" x2="600" y2="1" stroke="#D20A11" stroke-width="2" />
+            </svg>
+            <article className="contact-article">
               <div>
-                <h2>Nombre</h2>
+                <h2>Nombre persona de contacto</h2>
                 <p>{data.contact_person}</p>
               </div>
 
@@ -128,6 +136,18 @@ const PerfilSilverScreen = () => {
             </article>
             {/*  </div> */}
           </article>
+
+          <svg
+            width="800"
+            height="2"
+            viewBox="0 0 800 2"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="redline"
+          >
+            <line y1="1" x2="800" y2="1" stroke="#D20A11" stroke-width="2" />
+          </svg>
+
           <article className="perfil-article">
             <h2>VALORACIONES REALIZADAS</h2>
             <div className="valoration-container">
@@ -140,18 +160,50 @@ const PerfilSilverScreen = () => {
                   >
                     <h2>{loneliness.loneliness_id}</h2>
                     <h2>{loneliness.date}</h2>
+                    <svg viewBox="0 0 20 16" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M18 2h-8L8 0H2C.9 0 0 .9 0 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2Zm-5 3c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2Zm4 8H9v-1c0-1.3 2.7-2 4-2 1.3 0 4 .7 4 2v1Z"
+                        fill="#0a7f8d"
+                        fill-rule="evenodd"
+                        class="fill-000000"
+                      ></path>
+                    </svg>
                   </Link>
                 );
               })}
-            </div>
-            <div className="newvaloration">
-              <Link to={`/formularioSilver/${data.silver_id}/create`}>
-                <button>Nueva Valoración</button>
+
+              <Link
+                className="valoration-card"
+                to={`/formularioSilver/${data.silver_id}/create`}
+              >
+                <h2 className="titulo">Nueva Valoración</h2>
+                <svg
+                  width="50"
+                  height="50"
+                  viewBox="0 0 80 80"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M44 20H36V36H20V44H36V60H44V44H60V36H44V20ZM40 0C17.92 0 0 17.92 0 40C0 62.08 17.92 80 40 80C62.08 80 80 62.08 80 40C80 17.92 62.08 0 40 0ZM40 72C22.36 72 8 57.64 8 40C8 22.36 22.36 8 40 8C57.64 8 72 22.36 72 40C72 57.64 57.64 72 40 72Z"
+                    fill="#0A7F8D"
+                  />
+                </svg>
               </Link>
             </div>
           </article>
+          <svg
+            width="800"
+            height="2"
+            viewBox="0 0 800 2"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="redline"
+          >
+            <line y1="1" x2="800" y2="1" stroke="#D20A11" stroke-width="2" />
+          </svg>
           <div className="graphic-card">
-            <h1>Gráfico</h1>
+            <h2>Gráfico</h2>
             <Plot
               data={[
                 {
@@ -160,12 +212,16 @@ const PerfilSilverScreen = () => {
                 },
                 {
                   type: "bar",
-                  x: [1, 2, 3],
+                  x: [1, 2, 3, 4],
                   y: suma,
                   marker: {
                     color: "#0A7F8D",
                   },
                   text: suma,
+                  //aumentar el tamaño de la letra
+                  textfont: {
+                    size: 25,
+                  },
                   textposition: "auto",
                   hoverinfo: "none",
                 },
@@ -176,7 +232,7 @@ const PerfilSilverScreen = () => {
                 title: "Evolución valoraciones",
                 xaxis: {
                   tickmode: "array",
-                  tickvals: [1, 2, 3],
+                  tickvals: [1, 2, 3, 4],
                 },
               }}
             />

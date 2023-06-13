@@ -46,7 +46,10 @@ function Home() {
       <NavBar />
       <div className="home-container">
         <div className="menu-container">
-          <button className="btns" onClick={() => handleButtonClick("/tareas")}>
+          <button
+            className="homebtns"
+            onClick={() => handleButtonClick("/tareas")}
+          >
             <svg
               width="96"
               height="96"
@@ -72,7 +75,7 @@ function Home() {
           </button>
 
           <button
-            className="btns"
+            className="homebtns"
             onClick={() => handleButtonClick("/calendario")}
           >
             <svg
@@ -90,7 +93,10 @@ function Home() {
             Calendario
           </button>
 
-          <button className="btns" onClick={() => handleButtonClick("/perfil")}>
+          <button
+            className="homebtns"
+            onClick={() => handleButtonClick("/perfil")}
+          >
             <svg
               width="96"
               height="96"
@@ -114,7 +120,7 @@ function Home() {
           </button>
 
           <button
-            className="btns"
+            className="homebtns"
             onClick={() => handleButtonClick("/recursos")}
           >
             <svg
@@ -135,7 +141,7 @@ function Home() {
           </button>
 
           <button
-            className="btns"
+            className="homebtns"
             onClick={() => handleButtonClick("/valoraciones")}
           >
             <svg
@@ -154,7 +160,7 @@ function Home() {
           </button>
 
           <button
-            className="btns"
+            className="homebtns"
             onClick={() => handleButtonClick("/boletin")}
           >
             <svg
