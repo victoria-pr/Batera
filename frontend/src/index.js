@@ -6,6 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import "./reset.scss";
 import "./style.scss";
 import "./newForm.scss";
+import "./formScreen.scss";
 
 ReactDOM.render(
   <React.StrictMode>
