@@ -1,8 +1,9 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import NavBar from "./NavBar";
-
+import NavBarIcons from "./NavBarIcons";
+/* import html2pdf from "html2pdf.js";
+ */
 const NewFormScreen = () => {
   const navigate = useNavigate();
   const { id } = useParams();
@@ -81,9 +82,16 @@ const NewFormScreen = () => {
     }
   };
 
+  //función para descargar en pdf
+  const handleClick = () => {
+    const input = document.getElementById("form");
+    console.log("input", input);
+    html2pdf().from(input).save();
+  };
+
   return (
     <article className="newForm-article">
-      <NavBar />
+      <NavBarIcons />
       <div className="newForm-container">
         <form onSubmit={createFormWithID} className="newForm">
           <div className="form-sub-container">
@@ -611,6 +619,11 @@ const NewFormScreen = () => {
               <button type="submit" className="btn-guardar">
                 GUARDAR
               </button>
+              {/* Botón para descar en pdf: */}
+              {/* <button className="btn-descargar" onClick={handleClick}>
+                DESCARGAR
+              </button> */}
+
               <button className="btn-enviar">ENVIAR</button>
             </div>
           </div>

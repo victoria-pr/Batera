@@ -2,8 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import RecursosScreen from "./RecursosScreen";
-import NavBar from "./NavBar";
-
+import NavBarIcons from "./NavBarIcons";
 const FormularioScreen = () => {
   const [data, setData] = useState([]);
   const navigate = useNavigate();
@@ -84,7 +83,7 @@ const FormularioScreen = () => {
   if (!data) return <div>Loading...</div>;
   return (
     <section className="form-section">
-      <NavBar />
+      <NavBarIcons />
       <div className="form-container">
         <div className="form-card">
           <div className="form-info">
