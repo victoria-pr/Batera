@@ -308,3 +308,27 @@
     }
   }
 }
+.js-plotly-plot .plotly .modebar {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  display: none;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+  min-width: fit-content;
+}
+* {
+  box-sizing: content-box;
+}
