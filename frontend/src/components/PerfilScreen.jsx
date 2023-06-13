@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import NavBar from "./NavBar";
+import NavBarIcons from "./NavBarIcons";
 
 function Perfil() {
   const [loged, setLoged] = useState(localStorage.getItem("infoUser"));
@@ -42,7 +42,7 @@ function Perfil() {
   };
   return (
     <article className="perfilScreen">
-      <NavBar />
+      <NavBarIcons />
       <section className="perfilScreen__container">
         <div className="perfilScreen__container-datos">
           <h2>Datos del perfil</h2>
@@ -75,6 +75,7 @@ function Perfil() {
         </div>
       </section>
     </article>
+
   );
 }
 

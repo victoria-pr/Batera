@@ -32,7 +32,7 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       grid-gap: 3rem;
-      .btns {
+      .homebtns {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -312,7 +312,7 @@
             background-color: #ffffff;
           }
         }
-        .btns {
+        .btnslogin {
           display: flex;
           width: 100%;
           align-items: end;
@@ -362,6 +362,13 @@
         p {
           font-size: 18px;
         }
+
+        .btnslogin {
+          .btn-page {
+            font-size: 16px;
+          }
+        }
+
       }
     }
   }
@@ -389,7 +396,7 @@
         p {
           font-size: 18px;
         }
-        .btns {
+        .btnslogin {
           .btn-page {
             font-size: 16px;
           }
@@ -426,7 +433,7 @@
               font-size: 14px;
             }
           }
-          .btns {
+          .btnslogin {
             .btn-page {
               font-size: 14px;
             }
@@ -468,7 +475,7 @@
               font-size: 14px;
             }
           }
-          .btns {
+          .btnslogin {
             .btn-page {
               font-size: 14px;
             }
@@ -513,7 +520,7 @@
               font-size: 14px;
             }
           }
-          .btns {
+          .btnslogin {
             .btn-page {
               font-size: 14px;
             }
@@ -602,7 +609,7 @@
             background-color: #ffffff;
           }
         }
-        .btns {
+        .btnslogin {
           display: flex;
           width: 100%;
           align-items: end;
@@ -652,6 +659,11 @@
         p {
           font-size: 18px;
         }
+        .btnslogin {
+          .btn-page {
+            font-size: 16px;
+          }
+        }
       }
     }
   }
@@ -679,7 +691,7 @@
         p {
           font-size: 18px;
         }
-        .btns {
+        .btnslogin {
           .btn-page {
             font-size: 16px;
           }
@@ -716,7 +728,7 @@
               font-size: 14px;
             }
           }
-          .btns {
+          .btnslogin {
             .btn-page {
               font-size: 14px;
             }
@@ -758,7 +770,7 @@
               font-size: 14px;
             }
           }
-          .btns {
+          .btnslogin {
             .btn-page {
               font-size: 14px;
             }
@@ -803,7 +815,7 @@
               font-size: 14px;
             }
           }
-          .btns {
+          .btnslogin {
             .btn-page {
               font-size: 14px;
             }
@@ -824,29 +836,15 @@
   justify-content: center;
   align-items: center;
   background-color: white;
-  height: 100vh;
 }
 
-/* Estilos para los elementos del calendario */
-.fc-header-toolbar {
-  background-color: rgb(37, 123, 121);
-  color: white;
+.calendario-container {
+  font-family: "Raleway", sans-serif;
 }
 
-.fc-daygrid-day {
-  background-color: white;
-}
-
-.fc-daygrid-day.fc-today {
-  background-color: black;
-  color: white;
-}
-
-.fc-event {
-  background-color: rgb(37, 123, 121);
-  color: white;
-}
-
-.fc-daygrid-day-number {
-  color: black;
+.calendario {
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 30px 3px rgba(0, 0, 0, 0.16);
 }

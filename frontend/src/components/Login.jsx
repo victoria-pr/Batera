@@ -76,7 +76,7 @@ const Login = () => {
               />
             </div>
 
-            <div className="btns">
+            <div className="btnslogin">
               <button className="btn-page">Entrar</button>
             </div>
           </form>
