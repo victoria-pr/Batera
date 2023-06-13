@@ -15,9 +15,8 @@ function Calendario() {
       note: "personal",
     },
     {
-      title: "Videollamada",
+      title: "Videocall",
       start: "2023-06-16",
-      note: "integración",
     },
     {
       title: "Valoraciones",
@@ -49,6 +48,7 @@ function Calendario() {
               start: "today prev,next",
               center: "title",
               end: "dayGridMonth,timeGridWeek,timeGridDay",
+              themeSystem: "standard",
             }}
             events={eventos}
             eventContent={renderEventContent}
