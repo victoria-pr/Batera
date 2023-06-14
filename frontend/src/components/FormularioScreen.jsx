@@ -176,7 +176,16 @@ const FormularioScreen = () => {
                   10: ¿Con qué frecuencia se siente silenciado/a y excluido/a
                   por las demás?
                 </h4>
-                <p>-{getAnswer(data.q10)}</p>
+                <p
+                  className="btn btn-danger"
+                  onClick={() => {
+                    deleteForm(data.lon_form_id);
+                  }}
+                >
+                  -{getAnswer(data.q10)}
+                </p>
+                {/*                 <p>-{getAnswer(data.q10)}</p>
+                 */}
               </div>
 
               <h3
@@ -218,15 +227,6 @@ const FormularioScreen = () => {
             DESCARGAR
           </button>{" "}
         </div>
-
-        <button
-          className="btn btn-danger"
-          onClick={() => {
-            deleteForm(data.lon_form_id);
-          }}
-        >
-          borrar
-        </button>
       </div>
     </section>
   );
