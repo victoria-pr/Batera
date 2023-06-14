@@ -209,6 +209,14 @@ const FormularioScreen = () => {
             <div className="red-line"></div>
             {data && <RecursosScreen data={data} setData={setData} />}
           </div>
+          <button
+            className="btn-descargar"
+            onClick={() => {
+              window.print();
+            }}
+          >
+            DESCARGAR
+          </button>{" "}
         </div>
 
         <button

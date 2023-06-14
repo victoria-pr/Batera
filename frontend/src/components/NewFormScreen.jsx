@@ -2,8 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import NavBarIcons from "./NavBarIcons";
-/* import html2pdf from "html2pdf.js";
- */
+
 const NewFormScreen = () => {
   const navigate = useNavigate();
   const { id } = useParams();
@@ -80,13 +79,6 @@ const NewFormScreen = () => {
         navigate("/login");
       }
     }
-  };
-
-  //función para descargar en pdf
-  const handleClick = () => {
-    const input = document.getElementById("form");
-    console.log("input", input);
-    html2pdf().from(input).save();
   };
 
   return (
@@ -620,11 +612,14 @@ const NewFormScreen = () => {
                 GUARDAR
               </button>
               {/* Botón para descar en pdf: */}
-              {/* <button className="btn-descargar" onClick={handleClick}>
+              <button
+                className="btn-descargar"
+                onClick={() => {
+                  window.print();
+                }}
+              >
                 DESCARGAR
-              </button> */}
-
-              <button className="btn-enviar">ENVIAR</button>
+              </button>
             </div>
           </div>
         </form>
