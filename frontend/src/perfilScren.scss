@@ -14,13 +14,14 @@
     margin: 3rem 0rem;
     border-radius: 8px;
     box-shadow: 0px 0px 30px 3px rgba(0, 0, 0, 0.16);
-    justify-content: center;
     margin-top: 8rem;
+    padding: 2rem 2rem;
     .perfilScreen__container-datos {
       display: flex;
       flex-direction: column;
       gap: 1rem;
       box-sizing: border-box;
+      width: 100%;
       h2 {
         font-weight: 600;
       }
@@ -28,7 +29,7 @@
         display: flex;
         flex-direction: row;
         width: 100%;
-        gap: 1rem;
+        gap: 4rem;
         flex-wrap: wrap;
         justify-content: flex-start;
         p {
@@ -39,7 +40,7 @@
           span {
             font-weight: 400;
             border: #0a7f8d 1px solid;
-            width: 100%;
+            width: 70%;
             padding: 0.5rem 3rem 0.5rem 0.4rem;
             border-radius: 8px;
           }
@@ -72,7 +73,7 @@
 }
 
 @media screen and (max-width: 400px) {
-  .perfilScreen .perfilScreen__container {
+  .perfilScreen {
     display: flex;
     width: 90%;
     height: 90%;
@@ -81,26 +82,29 @@
     border-radius: 8px;
     box-shadow: 0px 0px 30px 3px rgba(0, 0, 0, 0.16);
     padding: 2rem 2rem;
-  }
-  .data-container {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    gap: 1rem;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    p {
-      display: flex;
-      flex-direction: column;
-      font-weight: 500;
-      gap: 0.5rem;
-      font-size: 14px;
-      span {
-        font-weight: 400;
-        border: #0a7f8d 1px solid;
-        width: 80%;
-        padding: 0.5rem 1.5rem 0.5rem 0.4rem;
-        border-radius: 8px;
+
+    .perfilScreen__container {
+      .data-container {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        p {
+          display: flex;
+          flex-direction: column;
+          font-weight: 500;
+          gap: 0.5rem;
+          font-size: 14px;
+          span {
+            font-weight: 400;
+            border: #0a7f8d 1px solid;
+            width: 80%;
+            padding: 0.5rem 1.5rem 0.5rem 0.4rem;
+            border-radius: 8px;
+          }
+        }
       }
     }
   }

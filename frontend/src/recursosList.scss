@@ -90,3 +90,11 @@
     }
   }
 }
+
+@media screen and (max-width: 810px) {
+  .resourceList-article {
+    .resourceList-section {
+      width: 60%;
+    }
+  }
+}

@@ -11,8 +11,8 @@ const FormularioScreen = () => {
   const getDataById = async (formId) => {
     try {
       const infoUser = localStorage.getItem("infoUser");
-      console.log("infoUser", infoUser);
-      if (!infoUser) {
+      /*       console.log("infoUser", infoUser);
+       */ if (!infoUser) {
         navigate("/login");
         return;
       }
@@ -23,8 +23,8 @@ const FormularioScreen = () => {
           headers: { "x-access-token": token },
         }
       );
-      console.log("DATOS DE LOS formularios: ", response);
-      setData(response.data);
+      /*       console.log("DATOS DE LOS formularios: ", response);
+       */ setData(response.data);
     } catch (error) {
       console.log("Da este error al coger la info de FORMS", error);
       if (error.response.status === 401 || error.response.status === 400) {
@@ -40,8 +40,8 @@ const FormularioScreen = () => {
   const handleDelete = async (formId) => {
     try {
       const infoUser = localStorage.getItem("infoUser");
-      console.log("infoUser", infoUser);
-      if (!infoUser) {
+      /*       console.log("infoUser", infoUser);
+       */ if (!infoUser) {
         navigate("/login");
         return;
       }
@@ -52,8 +52,8 @@ const FormularioScreen = () => {
           headers: { "x-access-token": token },
         }
       );
-      console.log("DATOS DE LOS formularios al borrar form: ", response);
-      //ahora navegamos a la pantalla de perfil silver
+      /*       console.log("DATOS DE LOS formularios al borrar form: ", response);
+       */ //ahora navegamos a la pantalla de perfil silver
       navigate(`/perfilSilver/${data.silver.silver_id}`);
     } catch (error) {
       console.log("Da este error al coger la info de FORMS", error);
@@ -181,9 +181,9 @@ const FormularioScreen = () => {
 
               <h3
                 className={
-                  data.sum <= 24
+                  data.sum <= 20
                     ? "green"
-                    : data.sum > 24 && data.sum <= 31
+                    : data.sum > 20 && data.sum <= 30
                     ? "yellow"
                     : "red"
                 }

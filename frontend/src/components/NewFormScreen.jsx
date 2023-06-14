@@ -58,8 +58,8 @@ const NewFormScreen = () => {
 
     try {
       const infoUser = localStorage.getItem("infoUser");
-      console.log("infoUser", infoUser);
-      if (!infoUser) {
+      /*       console.log("infoUser", infoUser);
+       */ if (!infoUser) {
         navigate("/login");
         return;
       }
@@ -71,8 +71,8 @@ const NewFormScreen = () => {
           headers: { "x-access-token": token },
         }
       );
-      console.log("DATOS DEl form creado: ", response);
-      navigate(`/formularioSilver/${response.data.data.lon_form_id}`);
+      /*       console.log("DATOS DEl form creado: ", response);
+       */ navigate(`/formularioSilver/${response.data.data.lon_form_id}`);
     } catch (error) {
       console.log("Da este error al coger la info de FORMS", error);
       if (error.response.status === 401 || error.response.status === 400) {

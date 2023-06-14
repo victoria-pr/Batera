@@ -12,8 +12,8 @@ function Perfil() {
   const getProfileData = async () => {
     try {
       const infoUser = localStorage.getItem("infoUser");
-      console.log("infoUser", infoUser);
-      if (!infoUser) {
+      /*       console.log("infoUser", infoUser);
+       */ if (!infoUser) {
         navigate("/login");
         return;
       }
@@ -21,8 +21,8 @@ function Perfil() {
       const response = await axios.get(`http://localhost:3100/api/agents`, {
         headers: { "x-access-token": token },
       });
-      console.log("datos del perfil logeado: ", response);
-      setData(response.data);
+      /*       console.log("datos del perfil logeado: ", response);
+       */ setData(response.data);
     } catch (error) {
       console.log("Da este error al coger la info del agent", error);
       if (error.response.status === 401 || error.response.status === 400) {

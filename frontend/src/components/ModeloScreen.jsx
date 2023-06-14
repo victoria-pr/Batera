@@ -25,12 +25,13 @@ const ModeloScreen = ({ data }) => {
 
   const infoUser = localStorage.getItem("infoUser");
   const localUser = JSON.parse(infoUser);
-  console.log("Modeloorl", modelo);
-
-  useEffect(() => {
-    console.log("La data que tenemos aquí en el model", data);
+  /*   console.log("Modeloorl", modelo);
+   */
+  /*  useEffect(() => {
+        console.log("La data que tenemos aquí en el model", data);
+    
   }, [data]);
-
+ */
   function calcularEdad(fechaNacimiento) {
     const fechaActual = new Date();
     const fechaNac = new Date(fechaNacimiento);
@@ -119,11 +120,11 @@ const ModeloScreen = ({ data }) => {
       }&Estado_Civil_Viudo= ${
         data.silver?.marital_status === "Viudo/a" ? "1" : "0"
       }`;
-      console.log("la url de api: ", url);
-      const response = await fetch(url);
+      /*       console.log("la url de api: ", url);
+       */ const response = await fetch(url);
       const modelo = await response.json();
-      console.log("la respuesta de api: ", response);
-      setModelo(modelo);
+      /*       console.log("la respuesta de api: ", response);
+       */ setModelo(modelo);
     } catch (error) {
       console.log("Da este error al hacer el modelo", error);
       if (error.response.status === 401 || error.response.status === 400) {
@@ -136,45 +137,46 @@ const ModeloScreen = ({ data }) => {
   const retrainModelo = async () => {
     try {
       //espera a que esté lastRecurso
-      const lastRecursoResources = [];
-      if (lastRecurso.resource.board_games === "1") {
-        lastRecursoResources.push("Juegos de mesa");
+      /*       console.log("lastRecurso", lastRecurso);
+       */ const lastRecursoResources = [];
+      if (lastRecurso.resource.board_games == "1") {
+        lastRecursoResources.push("Juegos_de_mesa");
       }
-      if (lastRecurso.resource.cofee_n_chat === "1") {
-        lastRecursoResources.push("Café y charlas");
+      if (lastRecurso.resource.cofee_n_chat == "1") {
+        lastRecursoResources.push("Cafe_y_charlas");
       }
-      if (lastRecurso.resource.cooking_group === "1") {
-        lastRecursoResources.push("Grupo de cocina");
+      if (lastRecurso.resource.cooking_group == "1") {
+        lastRecursoResources.push("Grupo_de_cocina");
       }
-      if (lastRecurso.resource.cycling_group === "1") {
-        lastRecursoResources.push("Grupo de ciclistas");
+      if (lastRecurso.resource.cycling_group == "1") {
+        lastRecursoResources.push("Grupo_de_ciclistas");
       }
-      if (lastRecurso.resource.day_care_center === "1") {
-        lastRecursoResources.push("Centro de día");
+      if (lastRecurso.resource.day_care_center == "1") {
+        lastRecursoResources.push("Centro_de_dia");
       }
-      if (lastRecurso.resource.garden_group === "1") {
-        lastRecursoResources.push("Grupo de jardinería");
+      if (lastRecurso.resource.garden_group == "1") {
+        lastRecursoResources.push("Grupo_de_jardineria");
       }
-      if (lastRecurso.resource.home_assistance === "1") {
-        lastRecursoResources.push("Asistencia domiciliaria");
+      if (lastRecurso.resource.home_assistance == "1") {
+        lastRecursoResources.push("Asistencia_domiciliaria");
       }
-      if (lastRecurso.resource.phone_assistance === "1") {
-        lastRecursoResources.push("Asistencia telefónica");
+      if (lastRecurso.resource.phone_assistance == "1") {
+        lastRecursoResources.push("Asistencia_telefonica");
       }
-      if (lastRecurso.resource.movie_club === "1") {
-        lastRecursoResources.push("Club de cine");
+      if (lastRecurso.resource.movie_club == "1") {
+        lastRecursoResources.push("Club_de_cine");
       }
-      if (lastRecurso.resource.reading_club === "1") {
-        lastRecursoResources.push("Club de lectura");
+      if (lastRecurso.resource.reading_club == "1") {
+        lastRecursoResources.push("Club_de_lectura");
       }
-      if (lastRecurso.resource.walking_club === "1") {
-        lastRecursoResources.push("Grupo de caminar");
+      if (lastRecurso.resource.walking_club == "1") {
+        lastRecursoResources.push("Grupo_de_caminar");
       }
       // Agrega más condicionales según sea necesario para las demás propiedades
-      console.log("A VER QUE ME DA", lastRecurso.resource.board_games);
-      const recursos_ut = lastRecursoResources.join(",");
-      console.log("ESTO ES LASTRECURSO", lastRecursoResources);
-
+      /*       console.log("A VER QUE ME DA", lastRecurso.resource.board_games);
+       */ const recursos_ut = lastRecursoResources.join(",");
+      /*       console.log("ESTO ES LASTRECURSO", lastRecursoResources);
+       */
       const url = `https://jonellacuria.pythonanywhere.com/v2/retrain?Suma=${
         data.sum
       }&ID_Agente=${localUser.id}&Edad=${edad}&Sexo_Femenino=${
@@ -240,9 +242,10 @@ const ModeloScreen = ({ data }) => {
       }&recursos_ut=${recursos_ut}&Suma_ant=${
         data.silver.loneliness_forms.slice(-2)[0].sum
       }`; //Tener en cuenta esta ruta
-      console.log("la url que pasamos para reentrenar: ", url);
-      const response = await axios.put(url); //probar con put
-      console.log("la respuesta de reentrenar: ", response);
+      /*       console.log("la url que pasamos para reentrenar: ", url);
+       */ const response = await axios.put(url); //probar con put
+      /*       console.log("la respuesta de reentrenar: ", response);
+       */
     } catch (error) {
       console.log("Da este error al reentrenar", error);
       if (error.response.status === 401 || error.response.status === 400) {
@@ -281,7 +284,8 @@ const ModeloScreen = ({ data }) => {
               onClick={() => {
                 obtenerPrediccion();
                 retrainModelo();
-                console.log("el ultimo recurso: ", lastRecurso);
+                /*                 console.log("el ultimo recurso: ", lastRecurso);
+                 */
               }}
             >
               Obtener recomendación

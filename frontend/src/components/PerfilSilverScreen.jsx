@@ -14,8 +14,8 @@ const PerfilSilverScreen = () => {
   const getDataById = async (silverId) => {
     try {
       const infoUser = localStorage.getItem("infoUser");
-      console.log("infoUser", infoUser);
-      if (!infoUser) {
+      /*       console.log("infoUser", infoUser);
+       */ if (!infoUser) {
         navigate("/login");
         return;
       }
@@ -26,8 +26,8 @@ const PerfilSilverScreen = () => {
           headers: { "x-access-token": token },
         }
       );
-      console.log("LOS DATOS de agents de silvers: ", response);
-      setData(response.data);
+      /*       console.log("LOS DATOS de agents de silvers: ", response);
+       */ setData(response.data);
     } catch (error) {
       console.log(
         "Da este error al coger la info de agents para los perfiles silver",
@@ -248,7 +248,7 @@ const PerfilSilverScreen = () => {
                   tickvals: [1, 2, 3, 4], //
                 },
                 yaxis: {
-                  range: [0, 40],
+                  range: [10, 40],
                 },
                 shapes: [
                   {

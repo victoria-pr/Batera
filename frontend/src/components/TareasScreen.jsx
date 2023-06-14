@@ -11,8 +11,8 @@ function Tareas() {
   const getDataById = async () => {
     try {
       const infoUser = localStorage.getItem("infoUser");
-      console.log("infoUser", infoUser);
-      if (!infoUser) {
+      /*       console.log("infoUser", infoUser);
+       */ if (!infoUser) {
         navigate("/login");
         return;
       }
@@ -20,8 +20,8 @@ function Tareas() {
       const response = await axios.get("http://localhost:3100/api/agents/", {
         headers: { "x-access-token": token },
       });
-      console.log("LOS DATOS de agents con sus cosas: ", response);
-      setData(response.data);
+      /*       console.log("LOS DATOS de agents con sus cosas: ", response);
+       */ setData(response.data);
     } catch (error) {
       console.log(
         "Da este error al coger la info de agents para los perfiles silver",

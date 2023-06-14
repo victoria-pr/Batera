@@ -11,7 +11,6 @@ function Home() {
   const getData = async () => {
     try {
       const infoUser = localStorage.getItem("infoUser");
-      console.log("infoUser", infoUser);
       if (!infoUser) {
         navigate("/login");
         return;
@@ -20,7 +19,6 @@ function Home() {
       const response = await axios.get("http://localhost:3100/", {
         headers: { "x-access-token": token },
       });
-      console.log("LOS DATOS : ", response);
       setData(response.data);
     } catch (error) {
       console.log("Da este error al entrar en home", error);

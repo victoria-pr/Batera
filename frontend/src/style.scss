@@ -200,7 +200,7 @@
     display: flex;
     align-items: center;
     width: 80%;
-    height: 80%;
+    height: 60%;
     background-color: #ffffff;
     flex-direction: column;
     padding: 20px;
@@ -294,8 +294,9 @@
   .loginsection {
     .form-container {
       width: 88%;
-      height: 88%;
+      height: 68%;
       gap: 2rem;
+      margin-top: 4rem;
       .login-container {
         form {
           .btns {
@@ -496,7 +497,7 @@
     display: flex;
     align-items: center;
     width: 80%;
-    height: 80%;
+    height: 60%;
     background-color: #ffffff;
     flex-direction: column;
     padding: 20px;
@@ -618,7 +619,7 @@
   .signupsection {
     .form-container {
       width: 80%;
-      height: 80%;
+      height: 60%;
       gap: 2rem;
       box-sizing: border-box;
       .navBar {
