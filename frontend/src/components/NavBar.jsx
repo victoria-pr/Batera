@@ -4,10 +4,16 @@ import axios from "axios";
 
 function NavBar() {
   return (
-    <nav className="navBar">
-      <Link to="/" className="Logo">
-        <img src="../logoBatera.png" className="LogoBatera" alt="Logo Batera" />
-      </Link>
+    <nav className="navBar1">
+      <div className="logo-container">
+        <Link to="/" className="enlace">
+          <img
+            src="../../logoBatera3.png"
+            className="LogoBatera"
+            alt="Logo Batera"
+          />
+        </Link>
+      </div>
     </nav>
   );
 }

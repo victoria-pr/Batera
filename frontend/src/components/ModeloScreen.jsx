@@ -164,17 +164,17 @@ const ModeloScreen = ({ data }) => {
               >
                 Cerrar recomendación
               </button>
-              {modelo?.actividad_1 ? <p>-{modelo.actividad_1}</p> : null}
-              {modelo?.actividad_2 ? <p>-{modelo.actividad_2}</p> : null}
-              {modelo?.actividad_3 ? <p>-{modelo.actividad_3}</p> : null}
-              {modelo?.actividad_4 ? <p>-{modelo.actividad_4}</p> : null}
-              {modelo?.actividad_5 ? <p>-{modelo.actividad_5}</p> : null}
-              {modelo?.actividad_6 ? <p>-{modelo.actividad_6}</p> : null}
-              {modelo?.actividad_7 ? <p>-{modelo.actividad_7}</p> : null}
-              {modelo?.actividad_8 ? <p>-{modelo.actividad_8}</p> : null}
-              {modelo?.actividad_9 ? <p>-{modelo.actividad_9}</p> : null}
-              {modelo?.actividad_10 ? <p>-{modelo.actividad_10}</p> : null}
-              {modelo?.actividad_11 ? <p>-{modelo.actividad_11}</p> : null}
+              {modelo?.actividad_1 ? <p>{modelo.actividad_1}</p> : null}
+              {modelo?.actividad_2 ? <p>{modelo.actividad_2}</p> : null}
+              {modelo?.actividad_3 ? <p>{modelo.actividad_3}</p> : null}
+              {modelo?.actividad_4 ? <p>{modelo.actividad_4}</p> : null}
+              {modelo?.actividad_5 ? <p>{modelo.actividad_5}</p> : null}
+              {modelo?.actividad_6 ? <p>{modelo.actividad_6}</p> : null}
+              {modelo?.actividad_7 ? <p>{modelo.actividad_7}</p> : null}
+              {modelo?.actividad_8 ? <p>{modelo.actividad_8}</p> : null}
+              {modelo?.actividad_9 ? <p>{modelo.actividad_9}</p> : null}
+              {modelo?.actividad_10 ? <p>{modelo.actividad_10}</p> : null}
+              {modelo?.actividad_11 ? <p>{modelo.actividad_11}</p> : null}
             </div>
           )}
         </div>
@@ -208,37 +208,37 @@ const ModeloScreen = ({ data }) => {
                   Cerrar último recurso adjudicado
                 </button>
                 {lastRecurso.resource?.board_games === 1 ? (
-                  <p>-Juegos de mesa</p>
+                  <p>Juegos de mesa</p>
                 ) : null}
                 {lastRecurso.resource?.cofee_n_chat === 1 ? (
-                  <p>-Café y charlas</p>
+                  <p>Café y charlas</p>
                 ) : null}
                 {lastRecurso.resource?.cooking_group === 1 ? (
-                  <p>-Grupo de cocina</p>
+                  <p>Grupo de cocina</p>
                 ) : null}
                 {lastRecurso.resource?.cycling_group === 1 ? (
-                  <p>-Grupo de ciclismo</p>
+                  <p>Grupo de ciclismo</p>
                 ) : null}
                 {lastRecurso.resource?.day_care_center === 1 ? (
-                  <p>-Centro de día</p>
+                  <p>Centro de día</p>
                 ) : null}
                 {lastRecurso.resource?.garden_group === 1 ? (
-                  <p>-Grupo de jardinería</p>
+                  <p>Grupo de jardinería</p>
                 ) : null}
                 {lastRecurso.resource?.home_assistance === 1 ? (
-                  <p>-Asistencia domiciliaria</p>
+                  <p>Asistencia domiciliaria</p>
                 ) : null}
                 {lastRecurso.resource?.movie_club === 1 ? (
-                  <p>-Club de cine</p>
+                  <p>Club de cine</p>
                 ) : null}
                 {lastRecurso.resource?.phone_assistance === 1 ? (
-                  <p>-Asistencia telefónica</p>
+                  <p>Asistencia telefónica</p>
                 ) : null}
                 {lastRecurso.resource?.reading_club === 1 ? (
-                  <p>-Club de lectura</p>
+                  <p>Club de lectura</p>
                 ) : null}
                 {lastRecurso.resource?.walking_club === 1 ? (
-                  <p>-Grupo de caminar</p>
+                  <p>Grupo de caminar</p>
                 ) : null}
               </div>
             ) : (

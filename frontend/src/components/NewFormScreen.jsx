@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import NavBar from "./NavBar";
+import NavBarIcons from "./NavBarIcons";
 
 const NewFormScreen = () => {
   const navigate = useNavigate();
@@ -83,7 +83,7 @@ const NewFormScreen = () => {
 
   return (
     <article className="newForm-article">
-      <NavBar />
+      <NavBarIcons />
       <div className="newForm-container">
         <form onSubmit={createFormWithID} className="newForm">
           <div className="form-sub-container">
@@ -611,7 +611,15 @@ const NewFormScreen = () => {
               <button type="submit" className="btn-guardar">
                 GUARDAR
               </button>
-              <button className="btn-enviar">ENVIAR</button>
+              {/* Botón para descar en pdf: */}
+              <button
+                className="btn-descargar"
+                onClick={() => {
+                  window.print();
+                }}
+              >
+                DESCARGAR
+              </button>
             </div>
           </div>
         </form>

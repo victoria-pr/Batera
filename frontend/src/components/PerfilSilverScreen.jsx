@@ -157,7 +157,6 @@ const PerfilSilverScreen = () => {
                     to={`/formularioSilver/${loneliness.lon_form_id}`}
                     className="valoration-card"
                   >
-                    <h2>{loneliness.loneliness_id}</h2>
                     <h2>{loneliness.date}</h2>
                     <svg viewBox="0 0 20 16" xmlns="http://www.w3.org/2000/svg">
                       <path

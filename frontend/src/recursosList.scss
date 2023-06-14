@@ -1,0 +1,90 @@
+.resourceList-article {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  align-items: center;
+  .resourceList-section {
+    display: flex;
+    width: 90%;
+    height: 90%;
+    background-color: #fff;
+    margin: 3rem 0rem;
+    border-radius: 8px;
+    box-shadow: 0px 0px 30px 3px rgba(0, 0, 0, 0.16);
+    padding: 2rem 5rem;
+    justify-content: center;
+    margin-top: 8rem;
+    .resourceList-section__container {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      box-sizing: border-box;
+      h2 {
+        font-weight: bolder;
+        font-size: 1.7rem;
+      }
+      .resourceList-section__container--data {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        gap: 4rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        .resourceList-section__container--data__item {
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+          border-radius: 8px;
+          box-shadow: 0px 0px 30px 3px rgba(0, 0, 0, 0.16);
+          padding: 1rem;
+
+          h3 {
+            font-weight: 600;
+            width: 100%;
+            font-size: 1.4rem;
+            padding: 0.5rem 3rem 0.5rem 0.4rem;
+          }
+          h4 {
+            font-weight: 400;
+            width: 100%;
+            font-size: 1.2rem;
+            padding: 0.5rem 3rem 0.5rem 0.4rem;
+            text-decoration: underline;
+          }
+          p {
+            font-weight: 400;
+            width: 100%;
+            padding: 0.5rem 3rem 0.5rem 0.4rem;
+          }
+        }
+        .no-active {
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+          border: #0a7f8d 1px solid;
+          border-radius: 8px;
+          h3 {
+            font-weight: 600;
+            width: 100%;
+            font-size: 1.4rem;
+            padding: 0.5rem 3rem 0.5rem 0.4rem;
+          }
+          h4 {
+            font-weight: 400;
+            width: 100%;
+            font-size: 1.2rem;
+            padding: 0.5rem 3rem 0.5rem 0.4rem;
+            text-decoration: underline;
+          }
+          p {
+            font-weight: 400;
+            width: 100%;
+            padding: 0.5rem 3rem 0.5rem 0.4rem;
+          }
+        }
+      }
+    }
+  }
+}
