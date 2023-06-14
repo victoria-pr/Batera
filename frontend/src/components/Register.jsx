@@ -12,7 +12,7 @@ const Register = () => {
   const getData = async (email, password) => {
     try {
       const response = await Axios.post(
-        "http://localhost:3100/api/agents/register",
+        "https://api.batera.vickypr.es/api/agents/register",
         {
           email,
           password,

@@ -65,7 +65,7 @@ const NewFormScreen = () => {
       }
       const token = JSON.parse(infoUser).token;
       const response = await axios.post(
-        `http://localhost:3100/api/lonelyForms/${id}/create`,
+        `https://api.batera.vickypr.es/api/lonelyForms/${id}/create`,
         form,
         {
           headers: { "x-access-token": token },

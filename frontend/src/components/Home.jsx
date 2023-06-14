@@ -16,7 +16,7 @@ function Home() {
         return;
       }
       const token = JSON.parse(infoUser).token;
-      const response = await axios.get("http://localhost:3100/", {
+      const response = await axios.get("https://api.batera.vickypr.es/", {
         headers: { "x-access-token": token },
       });
       setData(response.data);

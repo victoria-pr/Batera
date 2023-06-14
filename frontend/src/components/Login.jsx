@@ -21,7 +21,7 @@ const Login = () => {
   const getData = async (email, password) => {
     try {
       const response = await Axios.post(
-        "http://localhost:3100/api/auth/login",
+        "https://api.batera.vickypr.es/api/auth/login",
         {
           email,
           password,

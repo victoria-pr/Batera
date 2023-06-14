@@ -7,6 +7,8 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: bBK879@@
       MYSQL_DATABASE: desafio
+    ports:
+      - "3306:3306"
     volumes:
       - "./docker/mysql.cnf:/etc/mysql/conf.d/mysql.cnf"
       - "./docker/dbDesafio.sql:/docker-entrypoint-initdb.d/1dbDesafio.sql"

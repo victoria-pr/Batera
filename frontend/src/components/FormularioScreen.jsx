@@ -18,7 +18,7 @@ const FormularioScreen = () => {
       }
       const token = JSON.parse(infoUser).token;
       const response = await axios.get(
-        `http://localhost:3100/api/lonelyForms/${formId}`,
+        `https://api.batera.vickypr.es/api/lonelyForms/${formId}`,
         {
           headers: { "x-access-token": token },
         }
@@ -47,7 +47,7 @@ const FormularioScreen = () => {
       }
       const token = JSON.parse(infoUser).token;
       const response = await axios.delete(
-        `http://localhost:3100/api/lonelyForms/${formId}/delete`,
+        `https://api.batera.vickypr.es/api/lonelyForms/${formId}/delete`,
         {
           headers: { "x-access-token": token },
         }

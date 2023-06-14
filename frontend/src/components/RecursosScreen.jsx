@@ -34,7 +34,7 @@ function Recursos({ data, setData }) {
       };
 
       const response = await axios.post(
-        `http://localhost:3100/api/resources/${silverId}/create`,
+        `https://api.batera.vickypr.es/api/resources/${silverId}/create`,
         requestData,
         {
           headers: { "x-access-token": token },

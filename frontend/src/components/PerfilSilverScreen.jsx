@@ -21,7 +21,7 @@ const PerfilSilverScreen = () => {
       }
       const token = JSON.parse(infoUser).token;
       const response = await axios.get(
-        `http://localhost:3100/api/silvers/${silverId}`,
+        `https://api.batera.vickypr.es/api/silvers/${silverId}`,
         {
           headers: { "x-access-token": token },
         }

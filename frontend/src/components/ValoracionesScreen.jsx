@@ -16,9 +16,12 @@ function Valoraciones() {
         return;
       }
       const token = JSON.parse(infoUser).token;
-      const response = await axios.get("http://localhost:3100/api/agents/", {
-        headers: { "x-access-token": token },
-      });
+      const response = await axios.get(
+        "https://api.batera.vickypr.es/api/agents/",
+        {
+          headers: { "x-access-token": token },
+        }
+      );
       /*       console.log("LOS DATOS de agents con sus cosas: ", response);
        */ setData(response.data);
     } catch (error) {
