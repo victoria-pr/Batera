@@ -248,7 +248,7 @@ const PerfilSilverScreen = () => {
                   tickvals: [1, 2, 3, 4], //
                 },
                 yaxis: {
-                  range: [0, 40],
+                  range: [10, 40],
                 },
                 shapes: [
                   {
