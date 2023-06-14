@@ -129,6 +129,7 @@ function Recursos({ data, setData }) {
         <div className="new-resource">
           <ModeloScreen data={data} />
           <form>
+            <h3>Elegir recursos:</h3>
             <div className="resource-form-btns">
               <button
                 type="button"

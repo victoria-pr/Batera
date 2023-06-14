@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import axios from "axios";
 import "../screens.scss";
 
 function NavBar() {
@@ -28,9 +27,15 @@ function NavBar() {
 
   return (
     <nav className="navBar">
-      <Link to="/" className="enlace">
-        <img src="../logoBatera.png" className="LogoBatera" alt="Logo Batera" />
-      </Link>
+      <div className="logo-container">
+        <Link to="/" className="enlace">
+          <img
+            src="../../logoBatera3.png"
+            className="LogoBatera"
+            alt="Logo Batera"
+          />
+        </Link>
+      </div>
 
       <div className="iconos">
         <div
@@ -38,42 +43,42 @@ function NavBar() {
           onClick={() => handleButtonClick("/tareas")}
           data-route="/tareas"
         >
-          <img src="../tareasIcon.png" />
+          <img src="../../tareasIcon.png" />
         </div>
         <div
           className={`btns`}
           onClick={() => handleButtonClick("/calendario")}
           data-route="/calendario"
         >
-          <img src="../calendarIcon.png" />
+          <img src="../../calendarIcon.png" />
         </div>
         <div
           className={`btns`}
           onClick={() => handleButtonClick("/perfil")}
           data-route="/perfil"
         >
-          <img src="../perfilIcon.png" />
+          <img src="../../perfilIcon.png" />
         </div>
         <div
           className={`btns`}
           onClick={() => handleButtonClick("/recursos")}
           data-route="/recursos"
         >
-          <img src="../recursosIcon.png" />
+          <img src="../../recursosIcon.png" />
         </div>
         <div
           className={`btns`}
           onClick={() => handleButtonClick("/valoraciones")}
           data-route="/valoraciones"
         >
-          <img src="../valorationIcon.png" />
+          <img src="../../valorationIcon.png" />
         </div>
         <div
           className={`btns`}
           onClick={() => handleButtonClick("/boletin")}
           data-route="/boletin"
         >
-          <img src="../boletinIcon.png" />
+          <img src="../../boletinIcon.png" />
         </div>
       </div>
     </nav>
