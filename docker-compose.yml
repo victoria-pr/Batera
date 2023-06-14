@@ -7,8 +7,6 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: bBK879@@
       MYSQL_DATABASE: desafio
-    ports:
-      - 3330:3306
     volumes:
       - "./docker/mysql.cnf:/etc/mysql/conf.d/mysql.cnf"
       - "./docker/dbDesafio.sql:/docker-entrypoint-initdb.d/1dbDesafio.sql"
@@ -22,12 +20,18 @@ services:
     build: ./backend
     container_name: node-desafio
     restart: always
-    ports:
-      - 3100:3000
+    environment:
+      - VIRTUAL_HOST=api.batera.vickypr.es
+      - VIRTUAL_PORT=3000
+      - LETSENCRYPT_HOST=api.batera.vickypr.es
+      - LETSENCRYPT_EMAIL=admin@vickypr.es
+    expose:
+      - 3000
     depends_on:
       - mysql
     networks:
       - desafio
+      - proxy
     volumes:
       - ./backend:/usr/src/app
       - exclude:/usr/src/app/node_modules/
@@ -47,3 +51,6 @@ volumes:
   exclude:
 networks:
   desafio:
+  proxy:
+    name: nginx-proxy
+    external: true
