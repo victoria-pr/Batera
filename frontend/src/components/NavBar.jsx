@@ -8,7 +8,7 @@ function NavBar() {
       <div className="logo-container">
         <Link to="/" className="enlace">
           <img
-            src="../../logoBatera3.png"
+            src="../../logoBatera.png"
             className="LogoBatera"
             alt="Logo Batera"
           />

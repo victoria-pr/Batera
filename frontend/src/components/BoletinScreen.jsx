@@ -3,7 +3,7 @@ import NavBarIcons from "./NavBarIcons";
 
 function Boletin() {
   return (
-    <div>
+    <div className="bob-container">
       <NavBarIcons />
       <div className="pdf-boletin">
         <iframe

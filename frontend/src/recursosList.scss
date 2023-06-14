@@ -7,8 +7,8 @@
   align-items: center;
   .resourceList-section {
     display: flex;
-    width: 90%;
-    height: 90%;
+    width: 80%;
+    height: 80%;
     background-color: #fff;
     margin: 3rem 0rem;
     border-radius: 8px;
@@ -16,6 +16,8 @@
     padding: 2rem 5rem;
     justify-content: center;
     margin-top: 8rem;
+    margin-left: 6rem;
+    margin-right: 6rem;
     .resourceList-section__container {
       display: flex;
       flex-direction: column;

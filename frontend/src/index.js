@@ -9,6 +9,7 @@ import "./newForm.scss";
 import "./formScreen.scss";
 import "./perfilScren.scss";
 import "./recursosList.scss";
+import "./BOB.scss";
 
 ReactDOM.render(
   <React.StrictMode>
