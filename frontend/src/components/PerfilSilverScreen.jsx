@@ -44,7 +44,6 @@ const PerfilSilverScreen = () => {
   }, [id]);
 
   const suma = data.loneliness_forms?.map((loneliness) => loneliness.sum);
-  /* const fecha = data.loneliness_forms?.map((loneliness) => loneliness.date); */
 
   if (!data) return <div>Loading...</div>;
   return (
@@ -201,41 +200,106 @@ const PerfilSilverScreen = () => {
           >
             <line y1="1" x2="800" y2="1" stroke="#D20A11" stroke-width="2" />
           </svg>
-          <div className="graphic-card">
-            <h2>Gráfico</h2>
+          <article id="graphic-article">
             <Plot
               data={[
                 {
                   type: "scatter",
-                  mode: "lines+markers",
+                  showlegend: false,
+                  name: "límite",
+                  mode: "lines",
+                  y: [24, 24, 24, 24, 24],
+                  //línea discontinua
+                  line: {
+                    color: "orange",
+                    dash: "dot",
+                  },
+                  layer: "above",
                 },
+
                 {
                   type: "bar",
+                  showlegend: false, //para que no aparezca la leyenda de "Índice de soledad"
+                  name: "Índice de soledad",
                   x: [1, 2, 3, 4],
                   y: suma,
                   marker: {
                     color: "#0A7F8D",
+                    layer: "above",
                   },
                   text: suma,
                   //aumentar el tamaño de la letra
                   textfont: {
                     size: 25,
                   },
-                  textposition: "auto",
+                  textposition: "outside", // Cambio a "outside" para que aparezca en la parte de abajo
                   hoverinfo: "none",
+                  layer: "above",
                 },
               ]}
               layout={{
-                width: 420,
-                height: 340,
-                title: "Evolución valoraciones",
+                width: 600,
+                height: 500,
+
+                title: "Evolución",
                 xaxis: {
+                  range: [0, 4],
                   tickmode: "array",
-                  tickvals: [1, 2, 3, 4],
+                  tickvals: [1, 2, 3, 4], //
                 },
+                yaxis: {
+                  range: [0, 40],
+                },
+                shapes: [
+                  {
+                    layer: "below",
+                    type: "rect",
+                    xref: "paper",
+                    yref: "y",
+                    x0: 0,
+                    y0: 0,
+                    x1: 1,
+                    y1: 20,
+                    fillcolor: "green",
+                    opacity: 0.3,
+                    line: {
+                      width: 0,
+                    },
+                  },
+                  {
+                    layer: "below",
+                    type: "rect",
+                    xref: "paper",
+                    yref: "y",
+                    x0: 0,
+                    y0: 20,
+                    x1: 1,
+                    y1: 30,
+                    fillcolor: "yellow",
+                    opacity: 0.3,
+                    line: {
+                      width: 0,
+                    },
+                  },
+                  {
+                    layer: "below",
+                    type: "rect",
+                    xref: "paper",
+                    yref: "y",
+                    x0: 0,
+                    y0: 30,
+                    x1: 1,
+                    y1: 40,
+                    fillcolor: "red",
+                    opacity: 0.3,
+                    line: {
+                      width: 0,
+                    },
+                  },
+                ],
               }}
             />
-          </div>
+          </article>
         </div>
       </div>
     </section>

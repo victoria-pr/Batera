@@ -444,3 +444,150 @@
     }
   }
 }
+
+//GRÁFICO
+.js-plotly-plot .plotly .modebar {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  display: none;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+  min-width: fit-content;
+}
+* {
+  box-sizing: content-box;
+}
+
+//MIS VALORACIONES
+.btn-close {
+  border-radius: 8px;
+  border: none;
+  background-color: transparent;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: larger;
+}
+.valorationssection {
+  width: 100%;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: "Raleway", sans-serif;
+  box-sizing: border-box;
+  .valorations {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    .valorations-container {
+      display: flex;
+      flex-direction: column;
+      width: 80%;
+      height: 80%;
+      background-color: #fff;
+      padding: 22px;
+      gap: 3rem;
+      border-radius: 8px;
+      -webkit-box-shadow: 0px 0px 30px 3px rgba(0, 0, 0, 0.16);
+      -moz-box-shadow: 0px 0px 30px 3px rgba(0, 0, 0, 0.16);
+      box-shadow: 0px 0px 30px 3px rgba(0, 0, 0, 0.16);
+      align-items: center;
+      justify-content: center;
+      margin: 3rem 0rem;
+      h1 {
+        display: flex;
+        justify-content: left;
+        width: 100%;
+        font-size: 20px;
+      }
+      .task-article {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: 80%;
+
+        padding: 12px;
+        gap: 1rem;
+        box-sizing: border-box;
+
+        h2 {
+          display: flex;
+          justify-content: flex-start;
+          width: 100%;
+          font-weight: bold;
+        }
+        h1 {
+          font-weight: bold;
+        }
+        .tasks-container {
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+          gap: 1rem;
+          flex-wrap: wrap;
+          padding: 12px;
+          justify-content: space-evenly;
+          .task {
+            font-weight: bold;
+            text-align: center;
+            border: 3px solid #0a7f8d;
+            width: 130px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            padding: 18px;
+            background-color: #fff;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 15px;
+          }
+        }
+        .silvers-container {
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+          gap: 1rem;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          padding: 12px;
+          .silver-card {
+            width: 130px;
+            border: 3px solid #0a7f8d;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 18px;
+            background-color: #fff;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 15px;
+            text-decoration: none;
+            list-style-type: none;
+            color: #000;
+            h2 {
+              padding-bottom: 5px;
+            }
+            p {
+              padding-bottom: 5px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
