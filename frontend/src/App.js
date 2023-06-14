@@ -1,24 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Register from "./components/Register";
+import Login from "./components/Login";
+import Home from "./components/Home";
+import TareasScreen from "./components/TareasScreen";
+import CalendarioScreen from "./components/CalendarioScreen";
+import PerfilScreen from "./components/PerfilScreen";
+import RecursosList from "./components/RecursosList";
+import ValoracionesScreen from "./components/ValoracionesScreen";
+import BoletinScreen from "./components/BoletinScreen";
+import PerfilSilverScreen from "./components/PerfilSilverScreen";
+import FormularioScreen from "./components/FormularioScreen";
+import NewFormScreen from "./components/NewFormScreen";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/register" element={<Register />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/tareas" element={<TareasScreen />} />
+        <Route path="/calendario" element={<CalendarioScreen />} />
+        <Route path="/perfil" element={<PerfilScreen />} />
+        <Route path="/recursos" element={<RecursosList />} />
+        <Route path="/valoraciones" element={<ValoracionesScreen />} />
+        <Route path="/boletin" element={<BoletinScreen />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/perfilSilver/:id" element={<PerfilSilverScreen />} />
+        <Route path="/formularioSilver/:id" element={<FormularioScreen />} />
+        <Route
+          path="/formularioSilver/:id/create"
+          element={<NewFormScreen />}
+        />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
