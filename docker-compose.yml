@@ -51,7 +51,7 @@ services:
     depends_on:
       - node
     networks:
-      - egames
+      - desafio
       - proxy
     volumes:
       - /home/ubuntu/batera:/usr/share/nginx/html:ro
