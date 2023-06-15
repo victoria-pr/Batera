@@ -38,17 +38,23 @@ services:
       - ./backend:/usr/src/app
       - exclude:/usr/src/app/node_modules/
   react:
-    build: ./frontend
+    image: nginx:alpine
     container_name: react-desafio
     restart: always
-    ports:
-      - 3000:3000
+    environment:
+      - VIRTUAL_HOST=batera.vickyprpr.es
+      - VIRTUAL_PORT=80
+      - LETSENCRYPT_HOST=batera.vickyprpr.es
+      - LETSENCRYPT_EMAIL=admin@vickyprpr.es
+    expose:
+      - 80
     depends_on:
       - node
     networks:
-      - desafio
+      - egames
+      - proxy
     volumes:
-      - ./frontend:/usr/src/app
+      - /home/ubuntu/batera:/usr/share/nginx/html:ro
 volumes:
   exclude:
 networks:
