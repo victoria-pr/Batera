@@ -42,10 +42,10 @@ services:
     container_name: react-desafio
     restart: always
     environment:
-      - VIRTUAL_HOST=batera.vickyprpr.es
+      - VIRTUAL_HOST=batera.vickypr.es
       - VIRTUAL_PORT=80
-      - LETSENCRYPT_HOST=batera.vickyprpr.es
-      - LETSENCRYPT_EMAIL=admin@vickyprpr.es
+      - LETSENCRYPT_HOST=batera.vickypr.es
+      - LETSENCRYPT_EMAIL=admin@vickypr.es
     expose:
       - 80
     depends_on:
